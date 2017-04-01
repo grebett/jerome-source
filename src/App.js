@@ -5,18 +5,14 @@ import {
 } from 'react-router-dom'
 
 import NavBar from './components/NavBar'
-import Planet from './components/common/Planet'
+import PlanetBar from './components/PlanetBar'
 
 // Pages (should be components later)
 // Home page
 const Home = () => (
   // find something for this margin...
   <div style={{marginTop:'54px'}}>
-    <Planet size='l' text='Piano' to='piano' />
-    <Planet size='m' text='Clavecin' to='clavecin' />
-    <Planet size='xl' text='Improvisation' to='improvisation' />
-    <Planet size='s' text='Recherche' to='recherche' />
-    <Planet size='l' text='Composition' to='composition' />
+    <PlanetBar />
   </div>
 )
 // Bio page
