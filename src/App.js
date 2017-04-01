@@ -1,0 +1,31 @@
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+
+import Icon from './components/common/Icon'
+
+// Home page (should be in its own file later)
+const Home = () => (
+  <div>
+    <Icon name="gallery" />
+  </div>
+)
+
+const App = () => (
+  <Router>
+    <div>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+      </ul>
+
+      <hr/>
+
+      <Route exact path="/" component={Home}/>
+    </div>
+  </Router>
+)
+
+export default App
