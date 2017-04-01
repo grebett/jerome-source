@@ -12,8 +12,11 @@ import Planet from './components/common/Planet'
 const Home = () => (
   // find something for this margin...
   <div style={{marginTop:'54px'}}>
-    <h1>Hello world!</h1>
-    <Planet />
+    <Planet size='l' text='Piano' to='piano' />
+    <Planet size='m' text='Clavecin' to='clavecin' />
+    <Planet size='xl' text='Improvisation' to='improvisation' />
+    <Planet size='s' text='Recherche' to='recherche' />
+    <Planet size='l' text='Composition' to='composition' />
   </div>
 )
 // Bio page
