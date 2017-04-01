@@ -10,12 +10,12 @@ class MenuTab extends React.Component {
       width: '34px',
       padding: '0 10px',
       boxSizing: 'content-box',
-      background: '#4a4a4a',
+      background: 'transparent',
       display: 'inline-block'
     }
     const textStyles = {
       textAlign: 'center',
-      marginTop: '10px',
+      marginTop: '5px',
       width: '100%',
       fontFamily: 'Kano',
       fontSize: '10px',
@@ -24,7 +24,7 @@ class MenuTab extends React.Component {
 
     return (
       <div style={parentStyle}>
-        <Link to={this.props.to}>
+        <Link to={this.props.to} style={{textDecoration:'none'}}>
           <Icon name={this.props.name} width="20px" block />
           <div style={textStyles}>
             {this.props.title}

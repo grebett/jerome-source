@@ -1,32 +1,49 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
-import Menu from './components/Menu'
+import NavBar from './components/NavBar'
+import Planet from './components/common/Planet'
 
-// Home page (should be in its own file later)
+// Pages (should be components later)
+// Home page
 const Home = () => (
+  // find something for this margin...
+  <div style={{marginTop:'54px'}}>
+    <h1>Hello world!</h1>
+    <Planet />
+  </div>
+)
+// Bio page
+const Bio = () => (
   <div>
-    <Menu />
+    Bio
+  </div>
+)
+// Home page
+const Gallery = () => (
+  <div>
+    Gallery
+  </div>
+)
+// Home page
+const Contact = () => (
+  <div>
+    Contact
   </div>
 )
 
 const App = () => (
   <Router>
     <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-      </ul>
-
-      <hr/>
+      <NavBar />
 
       <Route exact path="/" component={Home}/>
-      <Route path="/bio" component={Home}/>
-      <Route path="/gallerie" component={Home}/>
-      <Route path="/contact" component={Home}/>
+      <Route path="/bio" component={Bio}/>
+      <Route path="/gallerie" component={Gallery}/>
+      <Route path="/contact" component={Contact}/>
     </div>
   </Router>
 )
