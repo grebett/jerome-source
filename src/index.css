@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+@font-face {
+  font-family: "Kano";
+  src: url(../public/assets/Kano_Regular/Kano.otf);
+}

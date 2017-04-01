@@ -5,12 +5,13 @@ import {
   Link
 } from 'react-router-dom'
 
-import Icon from './components/common/Icon'
+import MenuTab from './components/MenuTab'
 
 // Home page (should be in its own file later)
 const Home = () => (
   <div>
-    <Icon name="gallery" />
+    <MenuTab name="gallery" title="Gallerie"/>
+    <MenuTab name="home" title="Accueil"/>
   </div>
 )
 
