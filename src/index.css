@@ -8,3 +8,13 @@ body {
   font-family: "Kano";
   src: url(../public/assets/Kano_Regular/Kano.otf);
 }
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(../public/assets/Helvetica_Neue/HelveticaNeue.ttf);
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+  src: url(../public/assets/Helvetica_Neue/HelveticaNeue-Light.ttf);
+}
