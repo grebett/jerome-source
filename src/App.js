@@ -5,13 +5,12 @@ import {
   Link
 } from 'react-router-dom'
 
-import MenuTab from './components/MenuTab'
+import Menu from './components/Menu'
 
 // Home page (should be in its own file later)
 const Home = () => (
   <div>
-    <MenuTab name="gallery" title="Gallerie"/>
-    <MenuTab name="home" title="Accueil"/>
+    <Menu />
   </div>
 )
 

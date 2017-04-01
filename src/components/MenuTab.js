@@ -6,8 +6,11 @@ import Icon from './common/Icon';
 class MenuTab extends React.Component {
   render() {
     const parentStyle = {
-      maxWidth: '100px',
-      background: '#4a4a4a'
+      width: '34px',
+      padding: '0 10px',
+      boxSizing: 'content-box',
+      background: '#4a4a4a',
+      display: 'inline-block'
     }
     const textStyles = {
       textAlign: 'center',
