@@ -10,10 +10,10 @@ class Menu extends React.Component {
 
     return (
       <div style={parentStyle}>
-        <MenuTab name="home" title="Accueil"/>
-        <MenuTab name="bio" title="Bio"/>
-        <MenuTab name="gallery" title="Gallerie"/>
-        <MenuTab name="email" title="Contact"/>
+        <MenuTab name="home" title="Accueil" to="/"/>
+        <MenuTab name="bio" title="Bio" to="bio"/>
+        <MenuTab name="gallery" title="Gallerie" to="gallerie"/>
+        <MenuTab name="email" title="Contact" to="contact"/>
       </div>
     )
   }

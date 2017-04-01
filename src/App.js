@@ -24,6 +24,9 @@ const App = () => (
       <hr/>
 
       <Route exact path="/" component={Home}/>
+      <Route path="/bio" component={Home}/>
+      <Route path="/gallerie" component={Home}/>
+      <Route path="/contact" component={Home}/>
     </div>
   </Router>
 )

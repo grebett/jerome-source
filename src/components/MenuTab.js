@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-import Icon from './common/Icon';
+import Icon from './common/Icon'
 
 // TODO: add a `selected` prop and see how I can change the svg img and title color accordingly ==> #F6D365
 class MenuTab extends React.Component {
@@ -23,8 +24,12 @@ class MenuTab extends React.Component {
 
     return (
       <div style={parentStyle}>
-        <Icon name={this.props.name} width="20px" block />
-        <div style={textStyles}>{this.props.title}</div>
+        <Link to={this.props.to}>
+          <Icon name={this.props.name} width="20px" block />
+          <div style={textStyles}>
+            {this.props.title}
+          </div>
+        </Link>
       </div>
     )
   }
