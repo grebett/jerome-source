@@ -14,8 +14,9 @@ class Icon extends React.Component {
 
     return (
       <img
+        ref={this.props.name}
         alt={this.props.name}
-        src={`/assets/${this.props.name}.svg`}
+        src={`/assets/${this.props.name}${this.props.active ? '_active' : ''}.svg`}
         style={styles}
         width={this.props.width || '30px'} />
     )

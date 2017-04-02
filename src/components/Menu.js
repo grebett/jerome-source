@@ -13,10 +13,10 @@ class Menu extends React.Component {
 
     return (
       <div style={containerStyle}>
-        <MenuTab name="home" title="Accueil" to="/"/>
-        <MenuTab name="bio" title="Bio" to="bio"/>
-        <MenuTab name="gallery" title="Gallerie" to="gallerie"/>
-        <MenuTab name="email" title="Contact" to="contact"/>
+        <MenuTab name="home" title="Accueil" to="/" hoverable />
+        <MenuTab name="bio" title="Bio" to="bio" hoverable />
+        <MenuTab name="gallery" title="Gallerie" to="gallerie" hoverable />
+        <MenuTab name="email" title="Contact" to="contact" hoverable />
       </div>
     )
   }
