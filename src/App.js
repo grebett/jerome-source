@@ -6,7 +6,7 @@ import {
 
 import NavBar from './components/NavBar'
 // import PlanetBar from './components/PlanetBar'
-import Icon from './components/common/Icon'
+import NextEvents from './components/NextEvents'
 
 // Pages (should be components later)
 // Home page
@@ -14,7 +14,7 @@ const Home = () => (
   // find something for this margin...
   <div style={{marginTop:'54px'}}>
     {/* <PlanetBar /> */}
-    <Icon name="agenda" active width="100px"/>
+    <NextEvents />
   </div>
 )
 // Bio page

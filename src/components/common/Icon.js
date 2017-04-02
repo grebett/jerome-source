@@ -1,15 +1,16 @@
 import React from 'react'
 
-// TODO: add a `selected` prop and see how I can change the svg color accordingly
 class Icon extends React.Component {
   render() {
     const styles = {
       margin: 'auto',
-      background: 'transparent'
+      background: 'transparent',
+      display: 'inline',
+      verticalAlign: 'middle'
     }
 
-    if (this.props.block) {
-      styles.display = 'block'
+    if (this.props.display) {
+      styles.display = this.props.display
     }
 
     return (

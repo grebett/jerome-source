@@ -34,7 +34,7 @@ class MenuTab extends React.Component {
         onMouseOver={this.active.bind(this)}
         onMouseLeave={this.unactive.bind(this)}>
         <Link to={this.props.to} style={{textDecoration:'none'}}>
-          <Icon name={this.props.name} width="20px" block active={this.state.active}/>
+          <Icon name={this.props.name} width="20px" display='block' active={this.state.active}/>
           <div style={textStyles}>
             {this.props.title}
           </div>
