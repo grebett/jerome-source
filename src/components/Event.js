@@ -21,8 +21,8 @@ class Event extends React.Component {
       <div style={containerStyle}>
         <Icon name="agenda" active width="51px" display="inline-block"/>
         <span style={textStyles}>
-          – {this.props.data.date} {this.props.data.hour} –<br />
-          {this.props.data.place} – {this.props.data.city}
+          - {this.props.data.date} {this.props.data.hour} -<br />
+          {this.props.data.place} - {this.props.data.city}
         </span>
       </div>
     )

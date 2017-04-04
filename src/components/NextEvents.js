@@ -8,7 +8,7 @@ class NextEvents extends React.Component {
     const containerStyle = {
       position: 'absolute',
       top: '-113px',
-      left: '50%',
+      left: '765px',
       height: '582px',
       width: '582px',
       backgroundColor: 'transparent',
@@ -18,11 +18,12 @@ class NextEvents extends React.Component {
     const subcontainerStyle = {
       position: 'absolute',
       top: '291px',
-      left: '100px',
+      left: '125px',
       width: '482px'
     }
     const eventsStyle = {
-      marginTop: '20px',
+      marginTop: '17px',
+      marginLeft: '5px',
       maxHeight: '140px',
       overflowX: 'hidden',
       overflowY: 'scroll'
