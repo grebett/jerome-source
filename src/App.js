@@ -9,6 +9,7 @@ import Incipit from './components/Incipit'
 import NextEvents from './components/NextEvents'
 import PlanetBar from './components/PlanetBar'
 import Carousel from './components/Carousel'
+import Footer from './components/Footer'
 
 // Pages (should be components later)
 // Home page
@@ -19,6 +20,7 @@ const Home = () => (
     <NextEvents />
     <PlanetBar />
     <Carousel />
+    <Footer />
   </div>
 )
 // Bio page

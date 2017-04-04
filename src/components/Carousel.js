@@ -9,8 +9,7 @@ import Plus from './common/Plus'
 class Carousel extends React.Component {
   render() {
     const containerStyle = {
-      position: 'absolute',
-      top: '804px',
+      position: 'relative',
       minHeight: '461px',
       width: '1370px',
       padding: '0px',
@@ -25,15 +24,15 @@ class Carousel extends React.Component {
     const cardStyles = {
       position: 'absolute',
       top: '63px',
-      left: '200px',
+      left: '120px',
       zIndex: '2',
       backgroundColor: 'transparent'
     }
     const imgStyles = {
       position: 'absolute',
       top: '0px',
-      left: '627px',
-      maxWidth: '652px',
+      left: '550px',
+      maxWidth: '648px',
       maxHeight: '431px',
       overflow: 'hidden',
       zIndex: '1'
@@ -41,7 +40,7 @@ class Carousel extends React.Component {
     const plusStyles = {
       position: 'absolute',
       top: '396px',
-      left: '1239px',
+      left: '1163px',
       zIndex: '3'
     }
 

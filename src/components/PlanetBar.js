@@ -6,8 +6,8 @@ import Planet from './common/Planet';
 class PlanetBar extends React.Component {
   render() {
     const containerStyle = {
-      position: 'absolute',
-      top: '450px',
+      position: 'relative',
+      margin: '450px 0 100px 0',
       height: '254px',
       width: '100%',
       backgroundColor: 'transparent'
