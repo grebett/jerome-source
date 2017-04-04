@@ -8,6 +8,7 @@ class Card extends React.Component {
       fontFamily: 'Kano',
       color: '#4a4a4a',
       width: '500px',
+      backgroundColor: '#ffffff',
       padding: '15px 20px 5px 20px',
       boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.5)'
     }

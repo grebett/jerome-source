@@ -4,11 +4,11 @@ import {
   Route
 } from 'react-router-dom'
 
-
 import NavBar from './components/NavBar'
 import Incipit from './components/Incipit'
 import NextEvents from './components/NextEvents'
 import PlanetBar from './components/PlanetBar'
+import Carousel from './components/Carousel'
 
 // Pages (should be components later)
 // Home page
@@ -18,6 +18,7 @@ const Home = () => (
     <Incipit />
     <NextEvents />
     <PlanetBar />
+    <Carousel />
   </div>
 )
 // Bio page

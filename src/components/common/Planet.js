@@ -19,11 +19,12 @@ class Planet extends React.Component {
       height: sizes[this.props.size],
       width: sizes[this.props.size],
       position: 'absolute',
-      boxShadow: 'none',
+      boxShadow: '0px 2px 4px 0px rgba(59, 59, 59, 0.2)',
       transition: 'all 0.2s',
       ':hover': {
         backgroundImage: `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})`,
-        boxShadow: '0px 5px 5px 2px rgba(59, 59, 59, 0.2)'
+        boxShadow: '0px 3px 8px 0px rgba(59, 59, 59, 0.2)',
+        transform: 'scale(1.05)'
       }
     }
     const textStyles = {

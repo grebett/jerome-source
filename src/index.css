@@ -1,8 +1,38 @@
 body {
   margin: 0;
   padding: 0;
+  /*max-width: 1140px;*/
+  /*overflow-x: hidden;*/
   font-family: sans-serif;
 }
+
+/* this component is not easily configurable... we need to tweak and hack it... */
+.slick-slider, .slick-list {
+  height: 500px !important;
+}
+.slick-slider {
+  width: 100%;
+  margin: 30px;
+  padding: 0px;
+}
+
+.slick-prev {
+  left: 30px;
+  z-index: 1000;
+}
+.slick-next {
+  right: 20px;
+  z-index: 1000;
+}
+.slick-prev::before {
+  content: url(/assets/left.svg) !important;
+  color: #000;
+}
+.slick-next::before {
+  content: url(/assets/right.svg) !important;
+  color: #000;
+}
+
 
 @font-face {
   font-family: "Kano";
