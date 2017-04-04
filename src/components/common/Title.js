@@ -2,9 +2,10 @@ import React from 'react'
 
 class Title extends React.Component {
   render() {
-    const styles = {
+    const titleStyles = {
       fontFamily: 'Kano',
       color: '#4a4a4a',
+      fontWeight: 'normal',
       margin: '0px'
     }
     const sizes = {
@@ -16,10 +17,13 @@ class Title extends React.Component {
       h6: '12px'
     }
 
-    styles.fontSize = sizes[this.props.size]
+    titleStyles.fontSize = sizes[this.props.size]
+    titleStyles.lineHeight = sizes[this.props.size]
 
     // could check if this.props.size is a valid hx element
-    return React.createElement(this.props.size, {style: styles}, this.props.text.toUpperCase())
+    return (
+       React.createElement(this.props.size, {style: titleStyles}, this.props.text.toUpperCase())
+    )
   }
 }
 

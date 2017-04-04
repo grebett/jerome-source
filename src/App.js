@@ -4,16 +4,18 @@ import {
   Route
 } from 'react-router-dom'
 
+
 import NavBar from './components/NavBar'
-// import PlanetBar from './components/PlanetBar'
+import Incipit from './components/Incipit'
 import NextEvents from './components/NextEvents'
+// import PlanetBar from './components/PlanetBar'
 
 // Pages (should be components later)
 // Home page
 const Home = () => (
   // find something for this margin...
   <div style={{marginTop:'54px'}}>
-    {/* <PlanetBar /> */}
+    <Incipit />
     <NextEvents />
   </div>
 )
