@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 class Incipit extends React.Component {
   render() {
     const containerStyles = {
-      position: 'fixed',
+      position: 'absolute',
       margin: '0px',
       top: '81px',
       left: '118px',

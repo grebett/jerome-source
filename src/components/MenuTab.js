@@ -15,14 +15,14 @@ class MenuTab extends React.Component {
   render() {
     const parentStyle = {
       width: '34px',
-      padding: '0 10px',
+      padding: '3px 10px',
       boxSizing: 'content-box',
       background: 'transparent',
       display: 'inline-block'
     }
     const textStyles = {
       textAlign: 'center',
-      marginTop: '5px',
+      marginTop: '3px',
       width: '100%',
       fontFamily: 'Kano',
       fontSize: '10px',

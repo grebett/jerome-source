@@ -11,17 +11,18 @@ class Planet extends React.Component {
       s: '114px'
     }
     const containerStyles = {
-      display: 'inline-block', //tmp
+      display: 'block',
+      margin: '0px',
       backgroundColor: '#4a4a4a',
       color: 'gold',
       borderRadius: '50%',
       height: sizes[this.props.size],
       width: sizes[this.props.size],
-      position: 'relative',
+      position: 'absolute',
       boxShadow: 'none',
       transition: 'all 0.2s',
       ':hover': {
-        backgroundImage: 'linear-gradient(134deg, #f6d365, #fda085)',
+        backgroundImage: `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})`,
         boxShadow: '0px 5px 5px 2px rgba(59, 59, 59, 0.2)'
       }
     }
@@ -29,10 +30,13 @@ class Planet extends React.Component {
       color: '#ffffff',
       fontFamily: 'Kano',
       position: 'absolute',
-      top: '50%',
+      top: '49%',
       right: '10px',
       fontSize: '20px'
     }
+
+    containerStyles.top = `${this.props.y || 0}px`
+    containerStyles.left = `${this.props.x || 0}px`
 
     return (
       <Link to={this.props.to} style={{textDecoration:'none'}}>

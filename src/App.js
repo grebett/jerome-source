@@ -8,7 +8,7 @@ import {
 import NavBar from './components/NavBar'
 import Incipit from './components/Incipit'
 import NextEvents from './components/NextEvents'
-// import PlanetBar from './components/PlanetBar'
+import PlanetBar from './components/PlanetBar'
 
 // Pages (should be components later)
 // Home page
@@ -17,6 +17,7 @@ const Home = () => (
   <div style={{marginTop:'54px'}}>
     <Incipit />
     <NextEvents />
+    <PlanetBar />
   </div>
 )
 // Bio page
