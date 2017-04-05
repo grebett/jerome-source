@@ -1,9 +1,16 @@
+/****************/
+/*     MAIN     */
+/****************/
 body {
   margin: 0;
   padding: 0;
   /*TODO: media queries pour 1280px, 1024px et mobile*/
   font-family: sans-serif;
 }
+
+/****************/
+/*    SLIDER    */
+/****************/
 
 /* this component is not easily configurable... we need to tweak and hack it... */
 .slick-slider, .slick-list {
@@ -32,6 +39,9 @@ body {
   color: #000;
 }
 
+/***************/
+/* Custom Fonts*/
+/***************/
 
 @font-face {
   font-family: "Kano";

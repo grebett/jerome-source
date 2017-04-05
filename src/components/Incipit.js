@@ -13,8 +13,12 @@ class Incipit extends React.Component {
       left: '118px',
       height: 'auto',
       width: '602px',
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
     }
+    containerStyles['@media (max-width: 1439px)'] = {
+      left: '50px',
+    }
+
     const pStyles = {
       fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
       fontWeight: 'lighter',
@@ -22,6 +26,11 @@ class Incipit extends React.Component {
       lineHeight: '23px',
       margin: '0px',
       padding: '32px 34px 0 15px'
+    }
+    pStyles['@media (max-width: 1439px)'] = {
+      fontSize: '18px',
+      lineHeight: '21px',
+      padding: '22px 24px 0 10px'
     }
     const linkStyles = {
       color: '#f6d365',
