@@ -1,8 +1,9 @@
 import React from 'react'
+import Radium from 'radium'
 
 class Footer extends React.Component {
   render() {
-    const containerStyle = {
+    const containerStyles = {
       position: 'relative',
       left: '0px',
       bottom: '0px',
@@ -18,11 +19,11 @@ class Footer extends React.Component {
     }
 
     return (
-      <div style={containerStyle}>
+      <div style={containerStyles}>
         <p>Copyright 2017 – créé par grebett</p>
       </div>
     )
   }
 }
 
-export default Footer
+export default Radium(Footer)

@@ -1,11 +1,11 @@
 import React from 'react'
+import Radium from 'radium'
 
 import Menu from './Menu';
 
-// TODO: add a `selected` prop and see how I can change the svg img and title color accordingly ==> #F6D365
 class NavBar extends React.Component {
   render() {
-    const containerStyle = {
+    const containerStyles = {
       position: 'fixed',
       top: '0px',
       left: '0px',
@@ -16,11 +16,11 @@ class NavBar extends React.Component {
     }
 
     return (
-      <div style={containerStyle}>
+      <div style={containerStyles}>
         <Menu />
       </div>
     )
   }
 }
 
-export default NavBar
+export default Radium(NavBar)

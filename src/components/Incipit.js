@@ -1,9 +1,9 @@
 import React from 'react'
+import Radium from 'radium'
 
 import Title from './common/Title'
 import { Link } from 'react-router-dom'
 
-// TODO: add a `selected` prop and see how I can change the svg img and title color accordingly ==> #F6D365
 class Incipit extends React.Component {
   render() {
     const containerStyles = {
@@ -41,4 +41,4 @@ class Incipit extends React.Component {
   }
 }
 
-export default Incipit
+export default Radium(Incipit)

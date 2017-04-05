@@ -1,8 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  /*max-width: 1140px;*/
-  /*overflow-x: hidden;*/
+  /*TODO: media queries pour 1280px, 1024px et mobile*/
   font-family: sans-serif;
 }
 

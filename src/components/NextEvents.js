@@ -1,11 +1,12 @@
 import React from 'react'
+import Radium from 'radium'
 
 import Title from './common/Title'
 import Event from './Event'
 
 class NextEvents extends React.Component {
   render() {
-    const containerStyle = {
+    const containerStyles = {
       position: 'absolute',
       top: '-113px',
       left: '765px',
@@ -15,13 +16,13 @@ class NextEvents extends React.Component {
       borderRadius: '50%',
       border: '1px solid #f6a623'
     }
-    const subcontainerStyle = {
+    const subcontainerStyles = {
       position: 'absolute',
       top: '291px',
       left: '125px',
       width: '482px'
     }
-    const eventsStyle = {
+    const eventsStyles = {
       marginTop: '17px',
       marginLeft: '5px',
       maxHeight: '140px',
@@ -47,10 +48,10 @@ class NextEvents extends React.Component {
     }]
 
     return (
-      <div style={containerStyle}>
-        <div style={subcontainerStyle}>
+      <div style={containerStyles}>
+        <div style={subcontainerStyles}>
           <Title size="h2" text="prochains evenements"/>
-          <div style={eventsStyle}>
+          <div style={eventsStyles}>
             {events.map((event, i) => <Event key={i} data={event}/>)}
           </div>
         </div>
@@ -59,4 +60,4 @@ class NextEvents extends React.Component {
   }
 }
 
-export default NextEvents
+export default Radium(NextEvents)

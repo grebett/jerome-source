@@ -1,10 +1,11 @@
 import React from 'react'
+import Radium from 'radium'
 
 import Icon from './common/Icon';
 
 class Event extends React.Component {
   render() {
-    const containerStyle = {
+    const containerStyles = {
       marginBottom: '20px'
     }
     const textStyles = {
@@ -18,7 +19,7 @@ class Event extends React.Component {
     }
 
     return (
-      <div style={containerStyle}>
+      <div style={containerStyles}>
         <Icon name="agenda" active width="51px" display="inline-block"/>
         <span style={textStyles}>
           - {this.props.data.date} {this.props.data.hour} -<br />
@@ -29,4 +30,4 @@ class Event extends React.Component {
   }
 }
 
-export default Event
+export default Radium(Event)

@@ -1,11 +1,11 @@
 import React from 'react'
+import Radium from 'radium'
 
 import Planet from './common/Planet';
 
-// TODO: add a `selected` prop and see how I can change the svg img and title color accordingly ==> #F6D365
 class PlanetBar extends React.Component {
   render() {
-    const containerStyle = {
+    const containerStyles = {
       position: 'relative',
       margin: '450px 0 100px 0',
       height: '254px',
@@ -14,7 +14,7 @@ class PlanetBar extends React.Component {
     }
 
     return (
-      <div style={containerStyle}>
+      <div style={containerStyles}>
         <Planet size='l' text='Piano' to='piano' x={146} y={70} />
         <Planet size='m' text='Clavecin' to='clavecin' x={405} y={178} grad1='#13547a' grad2='#80d0c7'/>
         <Planet size='xl' text='Improvisation' to='improvisation' x={633} y={0} grad1='#fccb90' grad2='#d57eeb'/>
@@ -25,4 +25,4 @@ class PlanetBar extends React.Component {
   }
 }
 
-export default PlanetBar
+export default Radium(PlanetBar)

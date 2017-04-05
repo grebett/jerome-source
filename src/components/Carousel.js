@@ -1,14 +1,13 @@
 import React from 'react'
-
+import Radium from 'radium'
 import Slider from 'react-slick'
 
 import Card from './common/Card'
 import Plus from './common/Plus'
 
-// TODO: add a `selected` prop and see how I can change the svg img and title color accordingly ==> #F6D365
 class Carousel extends React.Component {
   render() {
-    const containerStyle = {
+    const containerStyles = {
       position: 'relative',
       minHeight: '461px',
       width: '1370px',
@@ -45,7 +44,7 @@ class Carousel extends React.Component {
     }
 
     return (
-      <div style={containerStyle}>
+      <div style={containerStyles}>
         <Slider {...{  dots: true, infinite: true, speed: 500, slidesToShow: 1, slidesToScroll: 1}}>
           <div style={subcontainerStyles}>
             <div style={cardStyles}>
@@ -75,4 +74,4 @@ class Carousel extends React.Component {
   }
 }
 
-export default Carousel
+export default Radium(Carousel)

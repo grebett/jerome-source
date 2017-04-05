@@ -1,18 +1,19 @@
 import React from 'react'
+import Radium from 'radium'
 
 import MenuTab from './MenuTab';
 
 // TODO: add a `selected` prop and see how I can change the svg img and title color accordingly ==> #F6D365
 class Menu extends React.Component {
   render() {
-    const containerStyle = {
+    const containerStyles = {
       position: 'absolute',
       top: '10px',
       right: '10px'
     }
 
     return (
-      <div style={containerStyle}>
+      <div style={containerStyles}>
         <MenuTab name="home" title="Accueil" to="/" hoverable />
         <MenuTab name="bio" title="Bio" to="bio" hoverable />
         <MenuTab name="gallery" title="Gallerie" to="gallerie" hoverable />
@@ -22,4 +23,4 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu
+export default Radium(Menu)

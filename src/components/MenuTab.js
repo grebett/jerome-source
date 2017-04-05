@@ -1,4 +1,5 @@
 import React from 'react'
+import Radium from 'radium'
 import { Link } from 'react-router-dom'
 
 import Icon from './common/Icon'
@@ -13,7 +14,7 @@ class MenuTab extends React.Component {
   }
 
   render() {
-    const parentStyle = {
+    const containerStyles = {
       width: '34px',
       padding: '3px 10px',
       boxSizing: 'content-box',
@@ -30,7 +31,7 @@ class MenuTab extends React.Component {
     }
 
     return (
-      <div style={parentStyle}
+      <div style={containerStyles}
         onMouseOver={this.active.bind(this)}
         onMouseLeave={this.unactive.bind(this)}>
         <Link to={this.props.to} style={{textDecoration:'none'}}>
@@ -54,4 +55,4 @@ class MenuTab extends React.Component {
   }
 }
 
-export default MenuTab
+export default Radium(MenuTab)
