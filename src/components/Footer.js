@@ -15,6 +15,7 @@ class Footer extends React.Component {
       fontWeight: 'lighter',
       fontSize: '13px',
       color: '#aaaaaa',
+      marginTop: '30px',
       padding: '30px 0'
     }
 

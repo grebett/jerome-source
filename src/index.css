@@ -13,13 +13,20 @@ body {
 /****************/
 
 /* this component is not easily configurable... we need to tweak and hack it... */
-.slick-slider, .slick-list {
-  height: 500px !important;
+.slick-track {
+  height: 100%;
 }
 .slick-slider {
-  width: 1310px;
-  margin: 30px;
+  width: 100%;
+  margin: auto;
   padding: 0px;
+  position: relative;
+}
+
+@media (max-width: 1439px) {
+  .slick-slider {
+    width: 100%;
+  }
 }
 
 .slick-prev {
