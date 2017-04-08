@@ -17,6 +17,9 @@ class Event extends React.Component {
       verticalAlign: 'middle',
       marginLeft: '15px'
     }
+    textStyles['@media (max-width: 1439px)'] = {
+      fontSize: '16px'
+    }
 
     return (
       <div style={containerStyles}>

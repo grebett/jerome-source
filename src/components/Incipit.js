@@ -16,21 +16,21 @@ class Incipit extends React.Component {
       backgroundColor: 'transparent',
     }
     containerStyles['@media (max-width: 1439px)'] = {
-      left: '50px',
+      left: 118 * 0.9 + 'px',
     }
 
     const pStyles = {
       fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
       fontWeight: 'lighter',
-      fontSize: '20px',
-      lineHeight: '23px',
-      margin: '0px',
-      padding: '32px 34px 0 15px'
-    }
-    pStyles['@media (max-width: 1439px)'] = {
       fontSize: '18px',
       lineHeight: '21px',
-      padding: '22px 24px 0 10px'
+      margin: '0px',
+      padding: '32px 34px 0 0'
+    }
+    pStyles['@media (max-width: 1439px)'] = {
+      fontSize: '16px',
+      lineHeight: '21px',
+      padding: '22px 54px 0 0'
     }
     const linkStyles = {
       color: '#f6d365',

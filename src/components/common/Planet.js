@@ -21,10 +21,14 @@ class Planet extends React.Component {
       position: 'absolute',
       boxShadow: '0px 2px 4px 0px rgba(59, 59, 59, 0.2)',
       transition: 'all 0.2s',
+      fontSize: '1px',
       ':hover': {
         backgroundImage: `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})`,
         boxShadow: '0px 3px 8px 0px rgba(59, 59, 59, 0.2)',
         transform: 'scale(1.05)'
+      },
+      '@media (max-width: 1439px)': {
+        fontSize: '0.9px'
       }
     }
     const textStyles = {
@@ -33,11 +37,14 @@ class Planet extends React.Component {
       position: 'absolute',
       top: '49%',
       right: '10px',
-      fontSize: '20px'
+      fontSize: '20px',
+      '@media (max-width: 1439px)': {
+        fontSize: '18px'
+      }
     }
 
-    containerStyles.top = `${this.props.y || 0}px`
-    containerStyles.left = `${this.props.x || 0}px`
+    containerStyles.top = `${this.props.y || 0}em`
+    containerStyles.left = `${this.props.x || 0}em`
 
     return (
       <Link to={this.props.to} style={{textDecoration:'none'}}>

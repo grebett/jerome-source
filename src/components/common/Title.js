@@ -13,8 +13,8 @@ class Title extends React.Component {
     }
     const size = {
       '1440px': sizes[this.props.size] + 'px',
-      '1280px': sizes[this.props.size] * 0.8 + 'px',
-      '1024px': sizes[this.props.size] * 0.7 + 'px'
+      '1280px': sizes[this.props.size] * 0.75 + 'px',
+      '1024px': sizes[this.props.size] * 0.6 + 'px'
     }
     const titleStyles = {
       fontFamily: 'Kano',
