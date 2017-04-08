@@ -29,6 +29,12 @@ class Planet extends React.Component {
       },
       '@media (max-width: 1439px)': {
         fontSize: '0.9px'
+      },
+      '@media (max-width: 1279px)': {
+        fontSize: '0.8px'
+      },
+      '@media (max-width: 1139px)': {
+        fontSize: '0.7px'
       }
     }
     const textStyles = {

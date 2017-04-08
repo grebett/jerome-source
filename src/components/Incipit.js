@@ -18,6 +18,12 @@ class Incipit extends React.Component {
     containerStyles['@media (max-width: 1439px)'] = {
       left: 118 * 0.9 + 'px',
     }
+    containerStyles['@media (max-width: 1279px)'] = {
+      left: 118 * 0.8 + 'px',
+    }
+    containerStyles['@media (max-width: 1139px)'] = {
+      left: 118 * 0.7 + 'px',
+    }
 
     const pStyles = {
       fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',

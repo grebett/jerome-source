@@ -28,6 +28,10 @@ class Title extends React.Component {
       fontSize: size['1280px'],
       lineHeight: size['1280px']
     }
+    titleStyles['@media (max-width: 1279px)'] = {
+      fontSize: size['1024px'],
+      lineHeight: size['1024px']
+    }
 
     // could check if this.props.size is a valid hx element
     return (

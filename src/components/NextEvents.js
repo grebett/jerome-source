@@ -23,14 +23,34 @@ class NextEvents extends React.Component {
       height: '532px',
       width: '532px',
     }
+    containerStyles['@media (max-width: 1279px)'] = {
+      top: '-113px',
+      left: '670px',
+      height: '485px',
+      width: '485px',
+    }
+    containerStyles['@media (max-width: 1139px)'] = {
+      top: '-113px',
+      left: '630px',
+      height: '465px',
+      width: '465px',
+    }
     const subcontainerStyles = {
       position: 'absolute',
-      top: '291px',
+      top: '295px',
       left: '125px',
       width: '482px'
     }
     subcontainerStyles['@media (max-width: 1439px)'] = {
-      top: '265px'
+      top: '269px'
+    }
+    subcontainerStyles['@media (max-width: 1279px)'] = {
+      top: '260px',
+      left: '100px',
+    }
+    subcontainerStyles['@media (max-width: 1139px)'] = {
+      top: '260px',
+      left: '100px',
     }
     const eventsStyles = {
       marginTop: '17px',

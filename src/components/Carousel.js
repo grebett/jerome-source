@@ -13,7 +13,7 @@ class Carousel extends React.Component {
       width: '100%',
       padding: '0px',
       margin: 'auto',
-      marginTop: '30px',
+      marginTop: '-10px',
       minHeight: '0px',
       minWidth: '0px'
     }
