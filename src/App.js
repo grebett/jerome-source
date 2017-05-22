@@ -11,6 +11,7 @@ import PlanetBar from './components/PlanetBar'
 import Carousel from './components/Carousel'
 import Footer from './components/Footer'
 import BioHeader from './components/BioHeader'
+import Sun from './components/Sun'
 
 // Pages (should be components later)
 // Home page
@@ -27,6 +28,7 @@ const Home = () => (
 // Bio page
 const Bio = () => (
   <div style={{marginTop:'54px'}}>
+    <Sun />
     <BioHeader />
   </div>
 )
