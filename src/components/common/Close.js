@@ -1,10 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
 
-class Play extends React.Component {
+class Close extends React.Component {
   render() {
     const sizes = {
-      m: '68.5px'
+      m: '50px'
     }
     const containerStyles = {
       display: 'block',
@@ -26,22 +26,21 @@ class Play extends React.Component {
       color: '#ffffff',
       fontFamily: 'Kano',
       textAlign: 'center',
-      paddingLeft: '8px',
-      lineHeight: '75px',
-      fontSize: '40px',
+      lineHeight: '50px',
+      fontSize: '30px',
       fontWeight: 'bold',
     }
 
     return (
       <div style={containerStyles}>
-        <p style={textStyles} data-target={this.props.target} data-type={this.props.type}>►</p>
+        <p style={textStyles} data-target={this.props.target} data-type={this.props.type}>✖</p>
       </div>
     )
   }
 }
 
-Play.defaultProps = {
+Close.defaultProps = {
   size: 'm'
 }
 
-export default Radium(Play)
+export default Radium(Close)

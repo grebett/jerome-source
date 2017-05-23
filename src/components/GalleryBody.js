@@ -1,24 +1,28 @@
 import React from 'react'
 import Radium from 'radium'
 
+import Modal from './common/Modal'
 import GalleryItem from './common/GalleryItem'
 
 class GalleryBody extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      displayModal: false,
+    }
+  }
+
   render() {
     const data = [
-      { src: '../assets/Piano.jpg', title: 'piano', media: true },
-      { src: '../assets/Clavecin.jpg', title: 'piano', media: false },
-      { src: '../assets/Clavecin 1.jpg', title: 'piano', media: true },
-      { src: '/assets/Composition.jpg', title: 'piano', media: true },
-      { src: '/assets/Gallerie1.jpg', title: 'piano', media: false },
-      { src: '/assets/Gallerie2.jpg', title: 'piano', media: false },
-      { src: '/assets/Composition.jpg', title: 'piano', media: false },
-      { src: '/assets/Improvisation.jpg', title: 'piano', media: false },
-      { src: '/assets/Portrait 2.jpg', title: 'piano', media: true },
-      { src: '/assets/Portrait.jpg', title: 'piano', media: false },
-      { src: '/assets/Gallerie1.jpg', title: 'piano', media: true },
-      { src: '/assets/Gallerie2.jpg', title: 'piano', media: true },
-
+      { src: '/assets/Piano.jpg', target: '/assets/Piano.jpg', title: 'piano', type: 'image' },
+      { src: '/assets/Clavecin.jpg', target: '/assets/Clavecin.jpg', title: 'piano', type: 'image' },
+      { src: '/assets/Clavecin 1.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
+      { src: '/assets/Composition.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
+      { src: '/assets/Gallerie1.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
+      { src: '/assets/Gallerie2.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
+      { src: '/assets/Composition.jpg', target: '/assets/Composition.jpg', title: 'piano', type: 'image' },
+      { src: '/assets/Improvisation.jpg', target: '/assets/Improvisation.jpg', title: 'piano', type: 'image' },
+      { src: '/assets/Portrait 2.jpg', target: '/assets/Portrait 2.jpg', title: 'piano', type: 'image' },
     ]
 
     const containerStyles = {
@@ -48,10 +52,38 @@ class GalleryBody extends React.Component {
           key={i}
           src={item.src}
           title={item.title}
-          is-media={item.media}/>
+          type={item.type}
+          target={item.target}
+          onClick={this.showModal.bind(this)}/>
         )}
+        <Modal
+          display={this.state.displayModal}
+          onClose={this.closeModal.bind(this)}
+          type={this.state.type}
+          target={this.state.target}
+        />
       </div>
     )
+  }
+
+  showModal(event) {
+    let el = event.target
+    let target = el.getAttribute('data-target')
+    let type = el.getAttribute('data-type')
+
+    this.setState({
+      type,
+      target,
+      displayModal: true,
+    })
+  }
+
+  closeModal() {
+    this.setState({
+      type: '',
+      target: '',
+      displayModal: false,
+    })
   }
 }
 

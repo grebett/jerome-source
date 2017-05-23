@@ -14,11 +14,13 @@ class GalleryItem extends React.Component {
       color: '#4a4a4a',
       width: this.props.width || '33.33%',
       height: this.props.height || 'auto',
-      backgroundColor: this.props['no-ui'] ? 'transparent' : '#ffffff',
+      backgroundColor: 'transparent',
       overflow: 'hidden',
       // backgroundImage: `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})`,
       padding: '20px',
+      zIndex: 4,
       textAlign: this.props['text-align'] || 'left',
+      cursor: 'pointer',
     }
     const playStyles = {
       position: 'absolute',
@@ -30,13 +32,19 @@ class GalleryItem extends React.Component {
     }
 
     let play = null
-    if (this.props['is-media']) {
-      play = <div style={playStyles}><Play /></div>
+    if (this.props.type === 'audio' || this.props.type === 'video') {
+      play = <div style={playStyles}><Play target={this.props.target} type={this.props.type}/></div>
     }
 
     return (
-      <div style={containerStyles}>
-        <img style={imageStyles} src={this.props.src} alt={this.props.title} width="100%" height="100%"/>
+      <div style={containerStyles} onClick={this.props.onClick}>
+        <img
+          style={imageStyles}
+          src={this.props.src}
+          alt={this.props.title}
+          width="100%" height="100%"
+          data-type={this.props.type}
+          data-target={this.props.target}/>
         {play}
       </div>
     )
