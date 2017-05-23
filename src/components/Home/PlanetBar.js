@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 
-import Planet from './common/Planet';
+import Planet from '../common/Planet';
 
 class PlanetBar extends React.Component {
   render() {

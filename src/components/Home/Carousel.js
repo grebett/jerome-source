@@ -2,8 +2,8 @@ import React from 'react'
 import Radium from 'radium'
 import Slider from 'react-slick'
 
-import Card from './common/Card'
-import Plus from './common/Plus'
+import Card from '../common/Card'
+import Plus from '../common/Plus'
 
 class Carousel extends React.Component {
   render() {

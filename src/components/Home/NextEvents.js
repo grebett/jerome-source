@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 
-import Title from './common/Title'
+import Title from '../common/Title'
 import Event from './Event'
 
 class NextEvents extends React.Component {

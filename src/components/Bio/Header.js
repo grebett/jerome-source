@@ -1,10 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
 
-import Title from './common/Title'
-import Card from './common/Card'
+import Title from '../common/Title'
+import Card from '../common/Card'
 
-class BioHeader extends React.Component {
+class Header extends React.Component {
   render() {
     const containerStyles = {
       position: 'relative',
@@ -64,4 +64,4 @@ class BioHeader extends React.Component {
   }
 }
 
-export default Radium(BioHeader)
+export default Radium(Header)

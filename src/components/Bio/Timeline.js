@@ -1,8 +1,8 @@
 import React from 'react'
 import Radium from 'radium'
 
-import Planet from './common/Planet'
-import Card from './common/Card'
+import Planet from '../common/Planet'
+import Card from '../common/Card'
 
 class Timeline extends React.Component {
   render() {

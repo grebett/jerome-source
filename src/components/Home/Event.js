@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 
-import Icon from './common/Icon';
+import Icon from '../common/Icon';
 
 class Event extends React.Component {
   render() {

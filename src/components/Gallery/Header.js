@@ -1,9 +1,9 @@
 import React from 'react'
 import Radium from 'radium'
 
-import Title from './common/Title'
+import Title from '../common/Title'
 
-class GalleryHeader extends React.Component {
+class Header extends React.Component {
   render() {
     const containerStyles = {
       position: 'relative',
@@ -33,4 +33,4 @@ class GalleryHeader extends React.Component {
   }
 }
 
-export default Radium(GalleryHeader)
+export default Radium(Header)

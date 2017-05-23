@@ -1,10 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
 
-import Modal from './common/Modal'
-import GalleryItem from './common/GalleryItem'
+import Modal from '../common/Modal'
+import GalleryItem from '../common/GalleryItem'
 
-class GalleryBody extends React.Component {
+class Body extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -87,4 +87,4 @@ class GalleryBody extends React.Component {
   }
 }
 
-export default Radium(GalleryBody)
+export default Radium(Body)

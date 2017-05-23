@@ -2,7 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router-dom'
 
-import Icon from './common/Icon'
+import Icon from '../common/Icon'
 
 // TODO: add a `selected` prop and see how I can change the svg img and title color accordingly ==> #F6D365
 class MenuTab extends React.Component {
