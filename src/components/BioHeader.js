@@ -7,12 +7,11 @@ import Card from './common/Card'
 class BioHeader extends React.Component {
   render() {
     const containerStyles = {
-      position: 'absolute',
+      position: 'relative',
       margin: '0px',
-      top: '81px',
+      top: '27px',
       left: '118px',
-      height: 'auto',
-      backgroundColor: 'transparent',
+      width: 'calc(100% - 118px)',
     }
     containerStyles['@media (max-width: 1439px)'] = {
       left: 118 * 0.9 + 'px',

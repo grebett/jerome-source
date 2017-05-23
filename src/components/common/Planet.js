@@ -8,19 +8,22 @@ class Planet extends React.Component {
       xl: '157px',
       l: '148.5px',
       m: '121px',
-      s: '114px'
+      s: '114px',
+      xs: '50px',
     }
     const containerStyles = {
       display: 'block',
       margin: '0px',
       backgroundColor: '#4a4a4a',
+      backgroundImage: this.props['force-active'] ? `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})` : 'none',
       color: 'gold',
       borderRadius: '50%',
       height: sizes[this.props.size],
       width: sizes[this.props.size],
       position: 'absolute',
       boxShadow: '0px 2px 4px 0px rgba(59, 59, 59, 0.2)',
-      transition: 'all 0.2s',
+      'transition-duration': '0.2s',
+      'transition-property': 'transform, box-shadow',
       fontSize: '1px',
       ':hover': {
         backgroundImage: `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})`,
@@ -37,7 +40,8 @@ class Planet extends React.Component {
         fontSize: '0.7px'
       }
     }
-    const textStyles = {
+
+    let textStyles = {
       color: '#ffffff',
       fontFamily: 'Kano',
       position: 'absolute',
@@ -48,17 +52,35 @@ class Planet extends React.Component {
         fontSize: '18px'
       }
     }
+    if (this.props['text-centered']) {
+      textStyles = {
+        ...textStyles,
+        textAlign: 'center',
+        right: 'auto',
+        width: '100%',
+        top: '45%',
+      }
+    }
 
-    containerStyles.top = `${this.props.y || 0}em`
-    containerStyles.left = `${this.props.x || 0}em`
+    let unit = this.props.unit || 'em'
+    containerStyles.top = `${this.props.y || 0}${unit}`
+    containerStyles.left = `${this.props.x || 0}${unit}`
 
-    return (
-      <Link to={this.props.to} style={{textDecoration:'none'}}>
+    if (this.props.to) {
+      return (
+        <Link to={this.props.to} style={{textDecoration:'none'}}>
+          <div style={containerStyles}>
+            <div style={textStyles}>{this.props.text}</div>
+          </div>
+        </Link>
+      )
+    } else {
+      return (
         <div style={containerStyles}>
           <div style={textStyles}>{this.props.text}</div>
         </div>
-      </Link>
-    )
+      )
+    }
   }
 }
 

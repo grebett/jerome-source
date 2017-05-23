@@ -9,15 +9,15 @@ class Card extends React.Component {
       fontFamily: 'Kano',
       color: '#4a4a4a',
       width: this.props.width || '500px',
-      backgroundColor: '#ffffff',
+      backgroundColor: this.props['no-ui'] ? 'transparent' : '#ffffff',
       padding: '15px 20px 5px 20px',
-      boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.5)'
+      boxShadow: this.props['no-ui'] ? 'none' : '0 2px 4px 0 rgba(0, 0, 0, 0.5)',
+      textAlign: this.props['text-align'] || 'left',
     }
     const pStyles = {
       fontSize: '20px',
-      textAlign: 'left',
       fontFamily: 'Helvetica Neue, Helvetica, sans-serif',
-      fontWeight: 'lighter'
+      fontWeight: 'lighter',
     }
     pStyles['@media (max-width: 1439px)'] = {
       fontSize: '16px'

@@ -9,7 +9,7 @@ class NextEvents extends React.Component {
     const containerStyles = {
       position: 'absolute',
       top: '-113px',
-      left: '765px',
+      right: '20px',
       height: '582px',
       width: '582px',
       backgroundColor: 'transparent',
@@ -18,20 +18,14 @@ class NextEvents extends React.Component {
       overflow: 'hidden'
     }
     containerStyles['@media (max-width: 1439px)'] = {
-      top: '-113px',
-      left: '700px',
       height: '532px',
       width: '532px',
     }
     containerStyles['@media (max-width: 1279px)'] = {
-      top: '-113px',
-      left: '670px',
       height: '485px',
       width: '485px',
     }
     containerStyles['@media (max-width: 1139px)'] = {
-      top: '-113px',
-      left: '630px',
       height: '465px',
       width: '465px',
     }

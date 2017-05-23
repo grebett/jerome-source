@@ -12,12 +12,13 @@ import Carousel from './components/Carousel'
 import Footer from './components/Footer'
 import BioHeader from './components/BioHeader'
 import Sun from './components/Sun'
+import Timeline from './components/Timeline'
 
 // Pages (should be components later)
 // Home page
 const Home = () => (
   // find something for this margin...
-  <div style={{marginTop:'54px'}}>
+  <div style={{marginTop:'54px', width:'100%'}}>
     <Incipit />
     <NextEvents />
     <PlanetBar />
@@ -27,9 +28,10 @@ const Home = () => (
 )
 // Bio page
 const Bio = () => (
-  <div style={{marginTop:'54px'}}>
+  <div style={{marginTop:'54px', width:'100%'}}>
     <Sun />
     <BioHeader />
+    <Timeline />
   </div>
 )
 // Home page
