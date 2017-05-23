@@ -22,8 +22,8 @@ class Planet extends React.Component {
       width: sizes[this.props.size],
       position: 'absolute',
       boxShadow: '0px 2px 4px 0px rgba(59, 59, 59, 0.2)',
-      'transition-duration': '0.2s',
-      'transition-property': 'transform, box-shadow',
+      transitionDuration: '0.2s',
+      transitionProperty: 'transform, box-shadow',
       fontSize: '1px',
       ':hover': {
         backgroundImage: `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})`,

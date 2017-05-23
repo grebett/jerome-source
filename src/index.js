@@ -14,7 +14,7 @@ import './index.css'
 
 ReactDOM.render(
   (<StyleRoot>
-    <App />,
+    <App />
   </StyleRoot>),
   document.getElementById('root')
 );

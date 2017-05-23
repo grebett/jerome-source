@@ -13,6 +13,8 @@ import Footer from './components/Footer'
 import BioHeader from './components/BioHeader'
 import Sun from './components/Sun'
 import Timeline from './components/Timeline'
+import GalleryHeader from './components/GalleryHeader'
+import GalleryBody from './components/GalleryBody'
 
 // Pages (should be components later)
 // Home page
@@ -36,8 +38,12 @@ const Bio = () => (
 )
 // Home page
 const Gallery = () => (
-  <div>
-    Gallery
+  <div style={{marginTop:'54px', width:'100%'}}>
+    <Sun />
+    <GalleryHeader />
+    <GalleryBody />
+    {/* <iframe width="400" height="180" scrolling="no" frameBorder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/34019569&amp;color=0066cc"></iframe>
+    <iframe id="ytplayer" type="text/html" width="400" height="180" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com" frameborder="0"></iframe>*/}
   </div>
 )
 // Home page
