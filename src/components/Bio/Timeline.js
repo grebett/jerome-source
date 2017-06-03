@@ -23,6 +23,8 @@ class Timeline extends React.Component {
     let step = 120
     if (document.querySelector('body').offsetWidth >= 1440) {
       step = 175
+    } else if (window.outerWidth < 1024) {
+      step = 150
     }
 
     const containerStyles = {
@@ -32,6 +34,11 @@ class Timeline extends React.Component {
       width: '148.5px',
       heigth: '100%',
     }
+    containerStyles['@media (max-width: 1023px)'] = {
+      width: '100%',
+      top: '-350px',
+      zIndex: '4',
+    }
     const rayStyles = {
       position: 'relative',
       margin: '50%',
@@ -40,6 +47,12 @@ class Timeline extends React.Component {
       height: experiences.length * step + 75 + 'px',
       top:'0px',
     }
+    rayStyles['@media (max-width: 1023px)'] = {
+      margin: 0,
+      left: '73px',
+    }
+
+    let isMobile = window.outerWidth < 1024
 
     return (
       <div style={containerStyles}>
@@ -47,16 +60,20 @@ class Timeline extends React.Component {
         <Planet size='l' x={0} y={0} text='Parcours' text-centered='true' force-active />
         { experiences.map((experience, i) => {
           let y = step * (i + 1) + 75
-
+          let left = '-380px'
+          let right = '85px'
+          if (isMobile) {
+            left = '85px'
+          }
           return (
             <div key={i}>
               <Planet size='xs' x={48.25} y={y} force-active unit="px" />
-              <div style={{position: 'absolute', top: y, left: i % 2 === 0 ? '85px' : '-380px'}}>
+              <div style={{position: 'absolute', top: y, left: i % 2 === 0 ? right : left}}>
                 <Card
                   title={experience.date.toString()}
                   text={experience.text}
-                  text-align={i % 2 === 0 ? 'left' : 'right'}
-                  width={400}
+                  text-align={i % 2 === 0 || isMobile ? 'left' : 'right'}
+                  width={isMobile ? '100%' : 400}
                   no-ui />
               </div>
             </div>

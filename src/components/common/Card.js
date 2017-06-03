@@ -8,6 +8,7 @@ class Card extends React.Component {
     const containerStyles = {
       fontFamily: 'Kano',
       color: '#4a4a4a',
+      boxSizing: 'border-box',
       width: this.props.width || '500px',
       backgroundColor: this.props['no-ui'] ? this.props['background-color'] || 'transparent' : '#ffffff',
       padding: this.props.padding || '15px 20px 5px 20px',
@@ -21,6 +22,9 @@ class Card extends React.Component {
     }
     pStyles['@media (max-width: 1439px)'] = {
       fontSize: '16px'
+    }
+    pStyles['@media (max-width: 1023px)'] = {
+      fontSize: '14px'
     }
 
     // could check if this.props.size is a valid hx element

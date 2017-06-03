@@ -25,6 +25,13 @@ class Header extends React.Component {
       left: 118 * 0.7 + 'px',
       width: `calc(100% - ${118 * 0.7 + 'px'})`,
     }
+    containerStyles['@media (max-width: 1023px)'] = {
+      position: 'relative',
+      boxSizing: 'border-box',
+      width: '100%',
+      top: '0px',
+      left: '0px',
+    }
     const subcontainerStyles = {
       width:'100%',
       position: 'relative',
@@ -38,6 +45,14 @@ class Header extends React.Component {
       marginLeft: '0%',
       width: '35%',
     }
+    cardStyles['@media (max-width: 1023px)'] = {
+      width: '100%',
+    }
+    const titleStyles = {
+      '@media (max-width: 1023px)': {
+        padding: '15px 15px 0 15px',
+      }
+    }
     const imgStyles = {
       backgroundColor: 'transparent',
       position: 'relative',
@@ -49,13 +64,32 @@ class Header extends React.Component {
       padding: '0px',
       width: '65%',
     }
+    imgStyles['@media (max-width: 1023px)'] = {
+      width: '100%',
+      marginLeft: '0px',
+    }
+
+    let mobileAttributes = {}
+    if (window.outerWidth < 1024) {
+      mobileAttributes = {
+        'no-ui': true,
+        'padding': '15px',
+      }
+    }
 
     return (
       <div style={containerStyles}>
-        <Title size='h1' text='jerome bertier' />
+        <div style={titleStyles}>
+          <Title size='h1' text='jerome bertier' />
+        </div>
         <div style={subcontainerStyles}>
           <div style={cardStyles}>
-            <Card width='100%' title='piano' text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»' />
+            <Card
+              width='100%'
+              title='Biographie'
+              text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»'
+              {...mobileAttributes}
+            />
           </div>
           <img style={imgStyles} src='/assets/piano.png' alt='piano' />
         </div>

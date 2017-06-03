@@ -6,8 +6,8 @@ import Timeline from './Timeline'
 
 const Bio = () => (
   <div style={{marginTop:'54px', width:'100%'}}>
-    <Sun />
     <Header />
+    <Sun />
     <Timeline />
   </div>
 )

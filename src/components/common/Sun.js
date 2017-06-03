@@ -26,6 +26,13 @@ class Sun extends React.Component {
       height: '465px',
       width: '465px',
     }
+    containerStyles['@media (max-width: 1023px)'] = {
+      position: 'relative',
+      top: '-270px',
+      left: '-270px',
+      height: '465px',
+      width: '465px',
+    }
 
     return (
       <div style={containerStyles}></div>
