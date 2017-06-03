@@ -23,6 +23,17 @@ class Incipit extends React.Component {
     containerStyles['@media (max-width: 1139px)'] = {
       left: 118 * 0.7 + 'px',
     }
+    containerStyles['@media (max-width: 1023px)'] = {
+      position: 'relative',
+      top: '0px',
+      left: '0px',
+      overflow: 'visible',
+      width: '100%',
+      height: 'auto',
+      border: 'none',
+      boxSizing: 'border-box',
+      padding: '15px',
+    }
 
     const pStyles = {
       fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',

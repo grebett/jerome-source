@@ -10,6 +10,10 @@ const quoteStyles = {
   ':hover': {
     color: 'red',
   },
+  '@media (max-width: 1023px)': {
+    marginTop: '30px',
+    fontSize: '24px',
+  }
 }
 
 const Quote = (props) => {

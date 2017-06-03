@@ -29,6 +29,16 @@ class Infos extends React.Component {
       height: '465px',
       width: '465px',
     }
+    // mobile
+    containerStyles['@media (max-width: 1023px)'] = {
+      position: 'relative',
+      top: '0px',
+      left: '0px',
+      overflow: 'visible',
+      width: '100%',
+      height: 'auto',
+      border: 'none',
+    }
     const subcontainerStyles = {
       position: 'absolute',
       top: '295px',
@@ -46,12 +56,18 @@ class Infos extends React.Component {
       top: '260px',
       left: '100px',
     }
+    subcontainerStyles['@media (max-width: 1023px)'] = {
+      width: '100%',
+      left: '0px',
+      top: '0px',
+      position: 'relative',
+      boxSizing: 'border-box',
+      padding: '15px',
+    }
     const eventsStyles = {
       marginTop: '17px',
       marginLeft: '5px',
       maxHeight: '140px',
-      overflowX: 'hidden',
-      overflowY: 'scroll'
     }
 
     const contactDetailStyles = {
@@ -69,6 +85,10 @@ class Infos extends React.Component {
     contactDetailTextStyles['@media (max-width: 1439px)'] = {
       fontSize: '16px'
     }
+    const linkStyles = {
+      color: '#4a4a4a',
+      textDecoration: 'none'
+    }
 
     return (
       <div style={containerStyles}>
@@ -79,14 +99,14 @@ class Infos extends React.Component {
               <Icon name="email" active width="51px" display="inline-block"/>
               <span style={contactDetailTextStyles}>
                 MAIL<br/>
-                <a href="mailto:jerome.bertier@gmail.com" target="_blank">jerome.bertier@gmail.com</a>
+                <a style={linkStyles} href="mailto:jerome.bertier@gmail.com" target="_blank">jerome.bertier@gmail.com</a>
               </span>
             </div>
             <div style={contactDetailStyles}>
               <Icon name="linkedin" active width="51px" display="inline-block"/>
               <span style={contactDetailTextStyles}>
                 LINKEDIN<br/>
-                <a href="https://linkedin.com/jeromebertier" target="_blank">linkedin.com/jeromebertier</a>
+                <a style={linkStyles} href="https://linkedin.com/jeromebertier" target="_blank">linkedin.com/jeromebertier</a>
               </span>
             </div>
           </div>
