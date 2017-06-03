@@ -24,17 +24,14 @@ class Play extends React.Component {
     }
     const textStyles = {
       color: '#ffffff',
-      fontFamily: 'Kano',
-      textAlign: 'center',
-      paddingLeft: '8px',
-      lineHeight: '75px',
-      fontSize: '40px',
-      fontWeight: 'bold',
+      width: '60%',
+      height: '60%',
+      padding: '20% 20% 20% 25%',
     }
 
     return (
       <div style={containerStyles}>
-        <p style={textStyles} data-target={this.props.target} data-type={this.props.type}>►</p>
+        <img style={textStyles} data-target={this.props.target} data-type={this.props.type} src="/assets/triangle.svg" width="100%" height="100%" alt="" />
       </div>
     )
   }

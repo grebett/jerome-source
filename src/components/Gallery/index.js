@@ -6,9 +6,9 @@ import Body from './Body'
 
 const Gallery = () => (
   <div style={{marginTop:'54px', width:'100%'}}>
-    <Sun />
     <Header />
     <Body />
+    <Sun />
   </div>
 )
 

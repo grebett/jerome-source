@@ -24,6 +24,14 @@ class Header extends React.Component {
       left: 118 * 0.7 + 'px',
       width: `calc(100% - ${118 * 0.7 + 'px'})`,
     }
+    containerStyles['@media (max-width: 1023px)'] = {
+      position: 'relative',
+      boxSizing: 'border-box',
+      width: '100%',
+      top: '0px',
+      left: '0px',
+      padding: '15px',
+    }
 
     return (
       <div style={containerStyles}>

@@ -48,8 +48,13 @@ class Body extends React.Component {
 
     // mobile
     containerStyles['@media (max-width: 1023px)'] = {
-      display: 'none',
+      top: '0px',
+      left: '0px',
+      width: '100%',
+      marginLeft: '0px',
     }
+
+    let isMobile = window.outerWidth < 1024
 
     return (
       <div style={containerStyles}>
@@ -59,6 +64,7 @@ class Body extends React.Component {
           title={item.title}
           type={item.type}
           target={item.target}
+          width={isMobile ? '100%' : null}
           onClick={this.showModal.bind(this)}/>
         )}
         <Modal

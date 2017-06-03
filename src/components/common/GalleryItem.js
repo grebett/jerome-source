@@ -16,7 +16,6 @@ class GalleryItem extends React.Component {
       height: this.props.height || 'auto',
       backgroundColor: 'transparent',
       overflow: 'hidden',
-      // backgroundImage: `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})`,
       padding: '20px',
       zIndex: 4,
       textAlign: this.props['text-align'] || 'left',
@@ -24,7 +23,7 @@ class GalleryItem extends React.Component {
     }
     const playStyles = {
       position: 'absolute',
-      top: 'calc(50% - 75px)',
+      top: 'calc(50% - 34px)',
       left: 'calc(50% - 34px)',
     }
     const imageStyles = {

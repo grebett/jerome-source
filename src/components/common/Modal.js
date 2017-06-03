@@ -35,15 +35,17 @@ class Modal extends React.Component {
     }
 
     let body
+    let width = window.outerWidth > 640 ? 640 : '100%'
+    let height = 360
     switch(this.props.type) {
       case 'image':
         body = <img width="100%" src={this.props.target} alt=""/>
         break
       case 'video':
-        body = <iframe type="text/html" width="640" height="360" src={this.props.target} frameBorder="0"></iframe>
+        body = <iframe type="text/html" width={width} height={height} src={this.props.target} frameBorder="0"></iframe>
         break
       case 'audio':
-        body = <iframe type="text/html" width="640" height="360" src={this.props.target} frameBorder="0"></iframe>
+        body = <iframe type="text/html" width={width} height={height} src={this.props.target} frameBorder="0"></iframe>
         break
       default:
         body = null
