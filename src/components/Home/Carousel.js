@@ -69,7 +69,7 @@ class Carousel extends React.Component {
               </div>
               <img style={imgStyles} src='/assets/piano.png' alt='piano' />
               <div style={plusStyles}>
-                <Plus to="piano" />
+                <Plus to="/page/piano" />
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@ class Carousel extends React.Component {
               </div>
               <img style={imgStyles} src='/assets/score.png' alt='partitions' />
               <div style={plusStyles}>
-                <Plus to="clavecin" grad1='#13547a' grad2='#80d0c7' />
+                <Plus to="/page/clavecin" grad1='#13547a' grad2='#80d0c7' />
               </div>
             </div>
           </div>

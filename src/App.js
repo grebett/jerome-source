@@ -9,8 +9,10 @@ import Home from './components/Home'
 import Bio from './components/Bio'
 import Gallery from './components/Gallery'
 import Contact from './components/Contact'
+import Page from './components/Page'
 
 const App = () => (
+  // for animation and scollToTop, see: https://reacttraining.com/react-router/web/guides/scroll-restoration
   <Router>
     <div>
       <NavBar />
@@ -19,6 +21,7 @@ const App = () => (
       <Route path="/bio" component={Bio}/>
       <Route path="/gallerie" component={Gallery}/>
       <Route path="/contact" component={Contact}/>
+      <Route path="/page/:skill" component={Page}/>
     </div>
   </Router>
 )

@@ -10,7 +10,7 @@ class Card extends React.Component {
       color: '#4a4a4a',
       width: this.props.width || '500px',
       backgroundColor: this.props['no-ui'] ? 'transparent' : '#ffffff',
-      padding: '15px 20px 5px 20px',
+      padding: this.props.padding || '15px 20px 5px 20px',
       boxShadow: this.props['no-ui'] ? 'none' : '0 2px 4px 0 rgba(0, 0, 0, 0.5)',
       textAlign: this.props['text-align'] || 'left',
     }
