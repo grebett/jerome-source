@@ -23,6 +23,19 @@ class Body extends React.Component {
       overflow: 'hidden',
       width: '100%',
     }
+    containerStyles['@media (max-width: 1023px)'] = {
+      margin: '30px 0px 0px 0px',
+      padding: '0px',
+      top: '0px',
+    }
+
+    let isMobile = window.outerWidth < 1024
+    let galleryItemWidth = '80%'
+    let cardPadding = '0%'
+    if (isMobile) {
+      galleryItemWidth = '100%'
+      cardPadding = '15px'
+    }
 
     return (
       <div style={containerStyles}>
@@ -31,8 +44,8 @@ class Body extends React.Component {
           rules={{
             display: 'inline-block',
             verticalAlign: 'top',
-            width: '44%',
-            margin: '0 2% 5% 2%',
+            width: isMobile ? '100%' : '44%',
+            margin: isMobile ? '0 0 30px 0' : '0 2% 5% 2%',
           }}/>
         <div>
           <div className="inline-top">
@@ -40,7 +53,7 @@ class Body extends React.Component {
               title="Titre - Article"
               text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
               width="100%"
-              padding="0px"
+              padding={cardPadding}
               no-ui />
           </div>
           <img className="inline-top" src="/assets/improvisation.jpg" width="50%" alt="" />
@@ -51,7 +64,7 @@ class Body extends React.Component {
               src="/assets/Piano.jpg"
               title="my title"
               type="video"
-              width="80%"
+              width={galleryItemWidth}
               target="https://www.youtube.com/embed/LWQVztiJHfs"
               onClick={this.showModal.bind(this)}/>
           </div>
@@ -59,7 +72,7 @@ class Body extends React.Component {
             <Card
               title="Titre - Article"
               text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              padding="0px"
+              padding={cardPadding}
               width="100%"
               no-ui />
           </div>

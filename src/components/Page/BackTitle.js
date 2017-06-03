@@ -6,6 +6,9 @@ import Back from '../common/Back'
 const containerStyles = {
   margin: '100px 50px 0 50px',
 }
+containerStyles['@media (max-width: 1023px)'] = {
+  margin: '80px 10px 20px 10px',
+}
 
 const backStyles = {
   display: 'inline-block',
