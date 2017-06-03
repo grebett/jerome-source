@@ -15,7 +15,7 @@ class NextEvents extends React.Component {
       backgroundColor: 'transparent',
       borderRadius: '50%',
       border: '1px solid #f6a623',
-      overflow: 'hidden'
+      overflow: 'hidden',
     }
     containerStyles['@media (max-width: 1439px)'] = {
       height: '532px',
@@ -29,6 +29,15 @@ class NextEvents extends React.Component {
       height: '465px',
       width: '465px',
     }
+    // mobile
+    containerStyles['@media (max-width: 1023px)'] = {
+      position: 'relative',
+      top: '0px',
+      left: '-220px',
+      overflow: 'visible',
+      width: '100%',
+    }
+
     const subcontainerStyles = {
       position: 'absolute',
       top: '295px',
@@ -46,12 +55,31 @@ class NextEvents extends React.Component {
       top: '260px',
       left: '100px',
     }
+    // mobile
+    subcontainerStyles['@media (max-width: 1023px)'] = {
+      position: 'absolute',
+      boxSizing: 'border-box',
+      paddingLeft: '15px',
+      top: '50px',
+      left: '220px',
+      width: '100%',
+    }
+
+
     const eventsStyles = {
       marginTop: '17px',
       marginLeft: '5px',
       maxHeight: '140px',
       overflowX: 'hidden',
-      overflowY: 'scroll'
+      overflowY: 'scroll',
+    }
+    // mobile
+    eventsStyles['@media (max-width: 1023px)'] = {
+      position: 'relative',
+      top: '0px',
+      overflowX: 'visible',
+      overflowY: 'visible',
+      maxHeight: 'auto',
     }
 
     const events = [{
@@ -71,10 +99,15 @@ class NextEvents extends React.Component {
       city: 'Lyon'
     }]
 
+    let customSize = null
+    if (window.outerWidth <= 1024) {
+      customSize = '1.5em'
+    }
+
     return (
       <div style={containerStyles}>
         <div style={subcontainerStyles}>
-          <Title size="h2" text="prochains evenements"/>
+          <Title size="h2" custom-size={customSize} text="prochains evenements"/>
           <div style={eventsStyles}>
             {events.map((event, i) => <Event key={i} data={event}/>)}
           </div>

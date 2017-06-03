@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 class Plus extends React.Component {
   render() {
     const sizes = {
-      m: '68.5px'
+      m: '68.5px',
+      xs: '30px',
     }
     const containerStyles = {
       display: 'block',
@@ -24,18 +25,15 @@ class Plus extends React.Component {
     }
     const textStyles = {
       color: '#ffffff',
-      fontFamily: 'Kano',
-      textAlign: 'center',
-      lineHeight: '72.5px',
-      height: '100%',
-      fontSize: '68.5px',
-      fontWeight: 'bold'
+      width: '60%',
+      height: '60%',
+      padding: '20%',
     }
 
     return (
       <Link to={this.props.to} style={{textDecoration:'none'}}>
         <div style={containerStyles}>
-          <div style={textStyles}>˖</div>
+          <img src="/assets/plus.svg" style={textStyles} alt=""/>
         </div>
       </Link>
     )

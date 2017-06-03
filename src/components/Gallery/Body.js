@@ -46,6 +46,11 @@ class Body extends React.Component {
       width: `calc(100% - ${98 * 0.7 + 'px'})`,
     }
 
+    // mobile
+    containerStyles['@media (max-width: 1023px)'] = {
+      display: 'none',
+    }
+
     return (
       <div style={containerStyles}>
         {data.map((item, i) => <GalleryItem

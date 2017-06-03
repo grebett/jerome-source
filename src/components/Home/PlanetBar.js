@@ -15,6 +15,10 @@ class PlanetBar extends React.Component {
         marginTop: '300px'
       }
     }
+    // mobile
+    containerStyles['@media (max-width: 1023px)'] = {
+      display: 'none',
+    }
 
     return (
       <div style={containerStyles}>

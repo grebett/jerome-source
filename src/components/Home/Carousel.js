@@ -33,6 +33,9 @@ class Carousel extends React.Component {
       position: 'relative',
       margin: 'auto'
     }
+    subcontainerStyles['@media (max-width: 1023px)'] = {
+      width: '100%',
+    }
     const cardStyles = {
       position: 'relative',
       display: 'inline-block',
@@ -40,6 +43,10 @@ class Carousel extends React.Component {
       verticalAlign: 'middle',
       marginLeft: '0%',
       width: '40%',
+    }
+    cardStyles['@media (max-width: 1023px)'] = {
+      padding:'0px',
+      width: '100%',
     }
     const imgStyles = {
       backgroundColor: 'transparent',
@@ -52,35 +59,63 @@ class Carousel extends React.Component {
       padding: '43px 0px',
       width: '60%',
     }
+    imgStyles['@media (max-width: 1023px)'] = {
+      display: 'none',
+    }
     const plusStyles = {
       position: 'absolute',
       bottom: '10px',
       right: '-33px',
       zIndex: '3',
     }
+    plusStyles['@media (max-width: 1023px)'] = {
+      bottom: '10px',
+      right: '10px',
+    }
+
+    let mobileAttributes = {}
+    let size = 'm'
+    if (window.outerWidth <= 1024) {
+      mobileAttributes = {
+        width: '80%',
+        padding:'0 0 0 10%',
+        backgroundColor:'#fffff',
+        'no-ui': true,
+      }
+      size = 'xs'
+    }
 
     return (
+      // bind this with real data
       <div style={containerStyles}>
         <Slider {...{  dots: true, infinite: true, speed: 500, slidesToShow: 1, slidesToScroll: 1}}>
           <div style={slideStyles}>
             <div style={subcontainerStyles}>
               <div style={cardStyles}>
-                <Card title='piano' text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»' />
+                <Card
+                  title='piano'
+                  text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»'
+                  {...mobileAttributes}
+                />
               </div>
               <img style={imgStyles} src='/assets/piano.png' alt='piano' />
               <div style={plusStyles}>
-                <Plus to="/page/piano" />
+                <Plus to="/page/piano" size={size}/>
               </div>
             </div>
           </div>
           <div style={slideStyles}>
             <div style={subcontainerStyles}>
               <div style={cardStyles}>
-                <Card title='clavecin' text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»' />
+                <Card
+                  title='clavecin'
+                  text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»'
+                  {...mobileAttributes}
+                  />
               </div>
               <img style={imgStyles} src='/assets/score.png' alt='partitions' />
               <div style={plusStyles}>
-                <Plus to="/page/clavecin" grad1='#13547a' grad2='#80d0c7' />
+                <Plus to="/page/clavecin" grad1='#13547a' grad2='#80d0c7' size={size} />
               </div>
             </div>
           </div>

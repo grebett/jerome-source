@@ -14,18 +14,6 @@ class Body extends React.Component {
   }
 
   render() {
-    const data = [
-      { src: '/assets/Piano.jpg', target: '/assets/Piano.jpg', title: 'piano', type: 'image' },
-      { src: '/assets/Clavecin.jpg', target: '/assets/Clavecin.jpg', title: 'piano', type: 'image' },
-      { src: '/assets/Clavecin 1.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
-      { src: '/assets/Composition.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
-      { src: '/assets/Gallerie1.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
-      { src: '/assets/Gallerie2.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
-      { src: '/assets/Composition.jpg', target: '/assets/Composition.jpg', title: 'piano', type: 'image' },
-      { src: '/assets/Improvisation.jpg', target: '/assets/Improvisation.jpg', title: 'piano', type: 'image' },
-      { src: '/assets/Portrait 2.jpg', target: '/assets/Portrait 2.jpg', title: 'piano', type: 'image' },
-    ]
-
     const containerStyles = {
       position: 'relative',
       boxSizing: 'border-box',
@@ -55,7 +43,7 @@ class Body extends React.Component {
               padding="0px"
               no-ui />
           </div>
-          <img className="inline-top" src="/assets/improvisation.jpg" width="50%" />
+          <img className="inline-top" src="/assets/improvisation.jpg" width="50%" alt="" />
         </div>
         <div>
           <div className="inline-top">

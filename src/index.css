@@ -45,6 +45,11 @@ body {
   content: url(/assets/right.svg) !important;
   color: #000;
 }
+@media (max-width: 1024px) {
+  .slick-prev, .slide-next, .slick-prev::before, .slick-next::before {
+    display: none;
+  }
+}
 
 /***************/
 /* Custom Fonts*/

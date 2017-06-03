@@ -34,7 +34,7 @@ class Back extends React.Component {
     return (
       <Link to={this.props.to} style={{textDecoration:'none'}}>
         <div style={containerStyles}>
-          <div style={textStyles}><img src="/assets/back.svg"/></div>
+          <div style={textStyles}><img src="/assets/back.svg" alt=""/></div>
         </div>
       </Link>
     )
