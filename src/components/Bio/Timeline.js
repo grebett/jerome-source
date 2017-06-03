@@ -36,7 +36,7 @@ class Timeline extends React.Component {
     }
     containerStyles['@media (max-width: 1023px)'] = {
       width: '100%',
-      top: '-350px',
+      top: '-400px',
       zIndex: '4',
     }
     const rayStyles = {

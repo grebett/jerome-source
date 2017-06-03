@@ -19,6 +19,10 @@ class Carousel extends React.Component {
       minHeight: '0px',
       minWidth: '0px'
     }
+    containerStyles['@media (max-width: 1023px)'] = {
+      marginTop: '-120px',
+      width: '100%',
+    }
     const slideStyles = {
       position: 'relative',
       width: '100%',

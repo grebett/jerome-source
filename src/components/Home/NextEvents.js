@@ -36,6 +36,7 @@ class NextEvents extends React.Component {
       left: '-220px',
       overflow: 'visible',
       width: '100%',
+      border: 'none',
     }
 
     const subcontainerStyles = {
