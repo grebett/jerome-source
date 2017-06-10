@@ -1,10 +1,41 @@
 import React from 'react'
 import Radium from 'radium'
+import * as Contentful from '../../services/contentful'
 
 import Title from '../common/Title'
 import Event from './Event'
 
 class NextEvents extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      displayModal: false,
+      events: [],
+    }
+    Contentful.getEntries('performances').then(value => {
+      let performances = value.items.map(item => {
+        let value = item.fields
+        value.date = new Date(value.date)
+
+        return value
+      })
+
+      // sort
+      performances.sort((a, b) => a.date > b.date)
+
+      // keep the last one + the 2 next
+      let now = new Date()
+      let i = performances.length - 1;
+      while (performances[i].date > now) {
+        i--;
+      }
+      performances = performances.slice(i, i + 3)
+      this.setState({events: performances})
+    }, error => {
+      console.error(error)
+    })
+  }
+
   render() {
     const containerStyles = {
       position: 'absolute',
@@ -12,10 +43,11 @@ class NextEvents extends React.Component {
       right: '20px',
       height: '582px',
       width: '582px',
-      backgroundColor: 'transparent',
+      backgroundColor: this.state.events.length > 0 ? 'transparent' : 'rgba(246, 211, 101, 0.6)',
       borderRadius: '50%',
-      border: '1px solid #f6a623',
+      border: this.state.events.length > 0 ? '1px solid #f6a623' : 'none',
       overflow: 'hidden',
+      transition: 'all 0.3s',
     }
     containerStyles['@media (max-width: 1439px)'] = {
       height: '532px',
@@ -37,13 +69,15 @@ class NextEvents extends React.Component {
       overflow: 'visible',
       width: '100%',
       border: 'none',
+      marginBottom: this.state.events.length > 0 ? 'auto' : '-400px',
     }
 
     const subcontainerStyles = {
       position: 'absolute',
       top: '295px',
       left: '125px',
-      width: '482px'
+      width: '482px',
+      display: this.state.events.length > 0 ? 'block' : 'none',
     }
     subcontainerStyles['@media (max-width: 1439px)'] = {
       top: '269px'
@@ -83,23 +117,6 @@ class NextEvents extends React.Component {
       maxHeight: 'auto',
     }
 
-    const events = [{
-      date: '22 JANVIER',
-      hour: '17h',
-      place: 'Centre Diocésain',
-      city: 'Besançon'
-    }, {
-      date: '14 NOVEMBRE',
-      hour: '14h30',
-      place: 'Institut Goethe',
-      city: 'Lyon'
-    }, {
-      date: '14 NOVEMBRE',
-      hour: '14h30',
-      place: 'Institut Goethe',
-      city: 'Lyon'
-    }]
-
     let customSize = null
     if (window.outerWidth <= 1024) {
       customSize = '1.5em'
@@ -110,7 +127,7 @@ class NextEvents extends React.Component {
         <div style={subcontainerStyles}>
           <Title size="h2" custom-size={customSize} text="prochains evenements"/>
           <div style={eventsStyles}>
-            {events.map((event, i) => <Event key={i} data={event}/>)}
+            {this.state.events.map((event, i) => <Event key={i} data={event}/>)}
           </div>
         </div>
       </div>
