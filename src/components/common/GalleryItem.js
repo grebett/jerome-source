@@ -5,6 +5,7 @@ import Play from './Play'
 
 class GalleryItem extends React.Component {
   render() {
+    console.log('GalleryItem', this.props)
     const containerStyles = {
       display: 'inline-block',
       position: 'relative',

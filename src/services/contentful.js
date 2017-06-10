@@ -20,3 +20,13 @@ export let getEntries = (contentType) => {
     })
   })
 }
+
+export let getEntry = (entryID) => {
+  return new Promise((resolve, reject) => {
+    client.getEntry(conf.pagesID[entryID] || entryID).then((value) => {
+      resolve(value)
+    }, (error) => {
+      reject(error)
+    })
+  })
+}

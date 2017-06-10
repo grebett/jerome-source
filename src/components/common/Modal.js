@@ -41,14 +41,14 @@ class Modal extends React.Component {
       case 'image':
         body = <img width="100%" src={this.props.target} alt=""/>
         break
-      case 'video':
+      case 'vidéo':
         body = <iframe type="text/html" width={width} height={height} src={this.props.target} frameBorder="0"></iframe>
         break
       case 'audio':
         body = <iframe type="text/html" width={width} height={height} src={this.props.target} frameBorder="0"></iframe>
         break
       default:
-        body = null
+        body = <p>toto</p>
     }
     // could check if this.props.size is a valid hx element
     return (

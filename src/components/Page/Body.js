@@ -1,15 +1,33 @@
 import React from 'react'
 import Radium, {Style} from 'radium'
+import * as Contentful from '../../services/contentful'
 
 import Modal from '../common/Modal'
 import Card from '../common/Card'
 import GalleryItem from '../common/GalleryItem'
 
 class Body extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       displayModal: false,
+      medium1: null,
+      medium2: null,
+    }
+  }
+
+  componentWillUpdate(nextProps) {
+    if (!this.state.medium1) {
+      Contentful.getEntry(nextProps.fields.medium1.sys.id).then(value1 => {
+        Contentful.getEntry(nextProps.fields.medium2.sys.id).then(value2 => {
+          this.setState({medium1: value1.fields, medium2: value2.fields})
+          console.log(this.state)
+        }, error => {
+          console.error(error)
+        })
+      }, error => {
+        console.error(error)
+      })
     }
   }
 
@@ -30,11 +48,43 @@ class Body extends React.Component {
     }
 
     let isMobile = window.outerWidth < 1024
-    let galleryItemWidth = '80%'
+    let galleryItemWidth = '100%'
     let cardPadding = '0%'
     if (isMobile) {
       galleryItemWidth = '100%'
       cardPadding = '15px'
+    }
+    let medium1 = null
+    let medium2 = null
+
+    if (this.state.medium1) {
+      let type = this.state.medium1.type[0]
+      if (type === 'image') {
+        medium1 = <img className="inline-top" src={this.state.medium1.URL} width="50%" alt="" />
+      } else {
+        medium1 = <GalleryItem
+          src={this.state.medium1.vignette}
+          title={this.state.medium1.title}
+          type={this.state.medium1.type[0]}
+          width={galleryItemWidth}
+          target={this.state.medium1.URL}
+          onClick={this.showModal.bind(this)}/>
+      }
+    }
+
+    if (this.state.medium2) {
+      let type = this.state.medium2.type[0]
+      if (type === 'image') {
+        medium2 = <img src={this.state.medium2.URL} width="100%" alt="" />
+      } else {
+        medium2 = <GalleryItem
+          src={this.state.medium2.vignette}
+          title={this.state.medium2.title}
+          type={this.state.medium2.type[0]}
+          width={galleryItemWidth}
+          target={this.state.medium2.URL}
+          onClick={this.showModal.bind(this)}/>
+      }
     }
 
     return (
@@ -50,28 +100,24 @@ class Body extends React.Component {
         <div>
           <div className="inline-top">
             <Card
-              title="Titre - Article"
-              text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              title={this.props.fields.titre1 || ''}
+              text={this.props.fields.paragraphe1}
               width="100%"
               padding={cardPadding}
               no-ui />
           </div>
-          <img className="inline-top" src="/assets/improvisation.jpg" width="50%" alt="" />
+          <div className="inline-top">
+            {medium1}
+          </div>
         </div>
         <div>
           <div className="inline-top">
-            <GalleryItem
-              src="/assets/Piano.jpg"
-              title="my title"
-              type="video"
-              width={galleryItemWidth}
-              target="https://www.youtube.com/embed/LWQVztiJHfs"
-              onClick={this.showModal.bind(this)}/>
+            {medium2}
           </div>
           <div className="inline-top">
             <Card
-              title="Titre - Article"
-              text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              title={this.props.fields.titre2 || ''}
+              text={this.props.fields.paragraphe2}
               padding={cardPadding}
               width="100%"
               no-ui />
