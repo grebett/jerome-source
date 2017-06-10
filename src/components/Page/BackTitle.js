@@ -27,7 +27,7 @@ const titleStyle = {
 const BackTitle = (props) => (
   <div style={containerStyles}>
     <div style={backStyles}>
-      <Back to=".."/>
+      <Back grad1={props.grad1} grad2={props.grad2} to=".."/>
     </div>
     <div style={titleStyle}>
       {props.title}

@@ -10,12 +10,3 @@ ReactDOM.render(
   </StyleRoot>),
   document.getElementById('root')
 );
-
-
-// import * as Contentful from './services/contentful'
-//
-// Contentful.getEntries('page').then(value => {
-//   console.log(JSON.stringify(value))
-// }, error => {
-//   console.error(error)
-// })
