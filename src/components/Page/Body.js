@@ -21,7 +21,6 @@ class Body extends React.Component {
       Contentful.getEntry(nextProps.fields.medium1.sys.id).then(value1 => {
         Contentful.getEntry(nextProps.fields.medium2.sys.id).then(value2 => {
           this.setState({medium1: value1.fields, medium2: value2.fields})
-          console.log(this.state)
         }, error => {
           console.error(error)
         })

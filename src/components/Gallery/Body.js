@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import * as Contentful from '../../services/contentful'
 
 import Modal from '../common/Modal'
 import GalleryItem from '../common/GalleryItem'
@@ -9,21 +10,29 @@ class Body extends React.Component {
     super()
     this.state = {
       displayModal: false,
+      media: [],
     }
+    Contentful.getEntries('media').then(value => {
+      this.setState({media: value.items})
+      console.log(value.items)
+    }, error => {
+      console.error(error)
+    })
   }
 
   render() {
-    const data = [
-      { src: '/assets/Piano.jpg', target: '/assets/Piano.jpg', title: 'piano', type: 'image' },
-      { src: '/assets/Clavecin.jpg', target: '/assets/Clavecin.jpg', title: 'piano', type: 'image' },
-      { src: '/assets/Clavecin 1.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
-      { src: '/assets/Composition.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
-      { src: '/assets/Gallerie1.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
-      { src: '/assets/Gallerie2.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
-      { src: '/assets/Composition.jpg', target: '/assets/Composition.jpg', title: 'piano', type: 'image' },
-      { src: '/assets/Improvisation.jpg', target: '/assets/Improvisation.jpg', title: 'piano', type: 'image' },
-      { src: '/assets/Portrait 2.jpg', target: '/assets/Portrait 2.jpg', title: 'piano', type: 'image' },
-    ]
+    let data = this.state.media.map((element) => element.fields)
+    // data = [
+    //   { src: '/assets/Piano.jpg', target: '/assets/Piano.jpg', title: 'piano', type: 'image' },
+    //   { src: '/assets/Clavecin.jpg', target: '/assets/Clavecin.jpg', title: 'piano', type: 'image' },
+    //   { src: '/assets/Clavecin 1.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
+    //   { src: '/assets/Composition.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
+    //   { src: '/assets/Gallerie1.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
+    //   { src: '/assets/Gallerie2.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
+    //   { src: '/assets/Composition.jpg', target: '/assets/Composition.jpg', title: 'piano', type: 'image' },
+    //   { src: '/assets/Improvisation.jpg', target: '/assets/Improvisation.jpg', title: 'piano', type: 'image' },
+    //   { src: '/assets/Portrait 2.jpg', target: '/assets/Portrait 2.jpg', title: 'piano', type: 'image' },
+    // ]
 
     const containerStyles = {
       position: 'relative',
@@ -60,10 +69,10 @@ class Body extends React.Component {
       <div style={containerStyles}>
         {data.map((item, i) => <GalleryItem
           key={i}
-          src={item.src}
+          src={item.vignette}
           title={item.title}
-          type={item.type}
-          target={item.target}
+          type={item.type[0]}
+          target={item.URL}
           width={isMobile ? '100%' : null}
           onClick={this.showModal.bind(this)}/>
         )}
