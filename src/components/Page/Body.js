@@ -67,7 +67,10 @@ class Body extends React.Component {
           type={this.state.medium1.type[0]}
           width={galleryItemWidth}
           target={this.state.medium1.URL}
-          onClick={this.showModal.bind(this)}/>
+          onClick={this.showModal.bind(this)}
+          grad1={this.props.grad1}
+          grad2={this.props.grad2}
+        />
       }
     }
 
@@ -82,7 +85,10 @@ class Body extends React.Component {
           type={this.state.medium2.type[0]}
           width={galleryItemWidth}
           target={this.state.medium2.URL}
-          onClick={this.showModal.bind(this)}/>
+          onClick={this.showModal.bind(this)}
+          grad1={this.props.grad1}
+          grad2={this.props.grad2}
+        />
       }
     }
 
@@ -127,6 +133,8 @@ class Body extends React.Component {
           onClose={this.closeModal.bind(this)}
           type={this.state.type}
           target={this.state.target}
+          grad1={this.props.grad1}
+          grad2={this.props.grad2}
         />
       </div>
     )

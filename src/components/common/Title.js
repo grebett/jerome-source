@@ -19,7 +19,7 @@ class Title extends React.Component {
     }
     const titleStyles = {
       fontFamily: 'Kano',
-      color: '#4a4a4a',
+      color: '#202020',
       fontWeight: 'normal',
       margin: '0px',
       fontSize: this.props['custom-size'] || size['1440px'],

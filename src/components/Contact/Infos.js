@@ -86,7 +86,7 @@ class Infos extends React.Component {
       fontSize: '16px'
     }
     const linkStyles = {
-      color: '#4a4a4a',
+      color: '#202020',
       textDecoration: 'none'
     }
 

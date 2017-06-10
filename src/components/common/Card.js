@@ -7,7 +7,7 @@ class Card extends React.Component {
   render() {
     const containerStyles = {
       fontFamily: 'Kano',
-      color: '#4a4a4a',
+      color: '#202020',
       boxSizing: 'border-box',
       width: this.props.width || '500px',
       backgroundColor: this.props['no-ui'] ? this.props['background-color'] || 'transparent' : '#ffffff',

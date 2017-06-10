@@ -32,7 +32,7 @@ class Page extends React.Component {
     return (
       <div style={{marginTop:'54px', width:'100%'}}>
         <BackTitle title={this.state.skill} grad1={this.state.grads[this.state.skill][0]} grad2={this.state.grads[this.state.skill][1]}/>
-        <Body fields={this.state.fields}/>
+        <Body fields={this.state.fields} grad1={this.state.grads[this.state.skill][0]} grad2={this.state.grads[this.state.skill][1]}/>
       </div>
     )
   }

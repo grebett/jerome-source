@@ -11,7 +11,7 @@ class NavBar extends React.Component {
       left: '0px',
       height: '54px',
       width: '100%',
-      backgroundColor: '#4a4a4a',
+      backgroundColor: '#202020',
       zIndex: 100
     }
 

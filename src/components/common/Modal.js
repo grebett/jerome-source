@@ -11,7 +11,7 @@ class Modal extends React.Component {
       left: '0',
       zIndex: '100',
       fontFamily: 'Kano',
-      color: '#4a4a4a',
+      color: '#202020',
       width: '100%',
       height: '100%',
       backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -54,7 +54,7 @@ class Modal extends React.Component {
     return (
       <div ref="container" style={containerStyles}>
         <div style={closeStyles} onClick={this.props.onClose}>
-          <Close />
+          <Close grad1={this.props.grad1} grad2={this.props.grad2}/>
         </div>
         <div style={bodyStyles}>
           {body}

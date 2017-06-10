@@ -11,7 +11,7 @@ class GalleryItem extends React.Component {
       boxSizing: 'border-box',
       verticalAlign: 'middle',
       fontFamily: 'Kano',
-      color: '#4a4a4a',
+      color: '#202020',
       width: this.props.width || '33.33%',
       height: this.props.height || 'auto',
       backgroundColor: 'transparent',
@@ -31,8 +31,15 @@ class GalleryItem extends React.Component {
     }
 
     let play = null
-    if (this.props.type === 'audio' || this.props.type === 'video') {
-      play = <div style={playStyles}><Play target={this.props.target} type={this.props.type}/></div>
+    if (this.props.type === 'audio' || this.props.type === 'vidéo') {
+      play = <div style={playStyles}>
+        <Play
+          target={this.props.target}
+          type={this.props.type}
+          grad1={this.props.grad1}
+          grad2={this.props.grad2}
+        />
+        </div>
     }
 
     return (

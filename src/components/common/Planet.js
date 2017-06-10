@@ -14,7 +14,7 @@ class Planet extends React.Component {
     const containerStyles = {
       display: 'block',
       margin: '0px',
-      backgroundColor: '#4a4a4a',
+      backgroundColor: '#202020',
       backgroundImage: this.props['force-active'] ? `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})` : 'none',
       color: 'gold',
       borderRadius: '50%',
