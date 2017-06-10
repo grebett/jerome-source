@@ -1,25 +1,47 @@
 import React from 'react'
 import Radium from 'radium'
+import * as Contentful from '../../services/contentful'
 
 import Planet from '../common/Planet'
 import Card from '../common/Card'
 
 class Timeline extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      displayModal: false,
+      experiences: [],
+    }
+    Contentful.getEntries('pieces').then(value => {
+      let experiences = value.items.map(item => {
+        let value = item.fields
+        value.date = new Date(value.date).getFullYear()
+
+        return value
+      })
+      experiences.sort((a, b) => a.date > b.date)
+      this.setState({experiences})
+    }, error => {
+      console.error(error)
+    })
+  }
+
   render() {
-    const experiences = [
-      { date: 1989, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 1995, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 1998, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 1999, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 2001, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 2002, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 2003, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 2004, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 2005, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 2010, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 2012, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-      { date: 2014, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
-    ]
+    const experiences = this.state.experiences
+    // [
+    //   { date: 1989, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 1995, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 1998, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 1999, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 2001, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 2002, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 2003, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 2004, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 2005, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 2010, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 2012, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    //   { date: 2014, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!'},
+    // ]
     let step = 120
     if (document.querySelector('body').offsetWidth >= 1440) {
       step = 175
@@ -71,7 +93,7 @@ class Timeline extends React.Component {
               <div style={{position: 'absolute', top: y, left: i % 2 === 0 ? right : left}}>
                 <Card
                   title={experience.date.toString()}
-                  text={experience.text}
+                  text={experience.description}
                   text-align={i % 2 === 0 || isMobile ? 'left' : 'right'}
                   width={isMobile ? '100%' : 400}
                   no-ui />
