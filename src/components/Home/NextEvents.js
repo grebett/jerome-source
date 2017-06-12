@@ -23,13 +23,20 @@ class NextEvents extends React.Component {
       // sort
       performances.sort((a, b) => a.date > b.date)
 
-      // keep the last one + the 2 next
+      // keep the last one (if less than a month) + the 2 next
       let now = new Date()
       let i = performances.length - 1;
       while (performances[i].date > now) {
         i--;
       }
       performances = performances.slice(i, i + 3)
+
+      // delete the first performance if it is older than one month
+      let month = performances[0].date.getMonth()
+      let past = new Date(performances[0].date.setMonth((month - 1) % 11))
+      if (now - past > 1000 * 3600 * 24 * 30) {
+        performances.shift()
+      }
       this.setState({events: performances})
     }, error => {
       console.error(error)
