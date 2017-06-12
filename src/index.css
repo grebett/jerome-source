@@ -37,6 +37,7 @@ body {
   right: 30px;
   z-index: 1000;
 }
+/* big this */
 .slick-prev::before {
   content: url(/assets/left.svg) !important;
   color: #000;

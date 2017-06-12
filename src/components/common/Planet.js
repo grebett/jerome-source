@@ -14,7 +14,7 @@ class Planet extends React.Component {
     const containerStyles = {
       display: 'block',
       margin: '0px',
-      backgroundColor: '#202020',
+      backgroundColor: '#414141', // planet
       backgroundImage: this.props['force-active'] ? `linear-gradient(134deg, ${this.props.grad1 || '#f6d365'}, ${this.props.grad2 ||  '#fda085'})` : 'none',
       color: 'gold',
       borderRadius: '50%',
@@ -69,7 +69,7 @@ class Planet extends React.Component {
     if (this.props.to) {
       return (
         <Link to={this.props.to} style={{textDecoration:'none'}}>
-          <div style={containerStyles}>
+          <div style={containerStyles} data-id={this.props.id} onMouseOver={this.props.onMouseOver}>
             <div style={textStyles}>{this.props.text}</div>
           </div>
         </Link>

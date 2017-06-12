@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="8px" height="12px" viewBox="0 0 8 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>Chevron gauche</title>
+<svg width="16px" height="24px" viewBox="0 0 16 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>left</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop-HD" transform="translate(-120.000000, -1033.000000)">
-            <g id="Détail" transform="translate(113.000000, 812.000000)">
-                <g id="Flèches" transform="translate(0.000000, 214.727273)">
-                    <g id="Chevron-gauche" transform="translate(0.000000, 1.000000)">
-                        <polygon id="Shape" fill="#000000" points="14.7021611 7.07318182 13.3569277 5.72727273 7.63253012 11.4545455 13.3569277 17.1818182 14.7021611 15.8359091 10.3325377 11.4545455"></polygon>
-                        <polygon id="Shape" points="0 0 22.8975904 0 22.8975904 22.9090909 0 22.9090909"></polygon>
-                    </g>
-                </g>
-            </g>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="left" transform="translate(-15.000000, -12.000000)">
+            <polygon id="Shape" fill="#000000" fill-rule="nonzero" points="30.682771 15.6009096 27.8753274 12.9090915 15.9287585 24.363637 27.8753274 35.8181824 30.682771 33.1263642 21.5635569 24.363637"></polygon>
+            <polygon id="Shape" points="0 1.454546 47.7862756 1.454546 47.7862756 47.2727278 0 47.2727278"></polygon>
         </g>
     </g>
 </svg>
