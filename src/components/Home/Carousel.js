@@ -94,7 +94,7 @@ class Carousel extends React.Component {
 
     let debounced = debounce(() => {
       if (this.refs.slider) {
-        this.refs.slider.slickGoTo(this.props.activeSlide || 0)
+        this.refs.slider.slickGoTo(this.props.activeSlide)
       }
     }, 300)
     debounced()

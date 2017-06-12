@@ -47,6 +47,17 @@ class Incipit extends React.Component {
       lineHeight: '21px',
       padding: '22px 54px 0 0'
     }
+    pStyles['@media (max-width: 1023px)'] = {
+      display: 'none',
+    }
+    const imgStyles = {
+      display: 'none',
+    }
+    imgStyles['@media (max-width: 1023px)'] = {
+      display: 'block',
+      width: '100%',
+      marginTop: '30px',
+    }
     const linkStyles = {
       color: '#f6d365',
       fontWeight: 'bold',
@@ -60,6 +71,7 @@ class Incipit extends React.Component {
           «&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»
           &nbsp;<Link style={linkStyles} to='bio'>Découvrir ma biographie</Link>
         </p>
+        <img style={imgStyles} src="/assets/piano.jpg" />
       </div>
     )
   }
