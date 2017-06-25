@@ -108,7 +108,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='piano'
-                  text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»'
+                  text='«&nbsp;Une formation de soliste en France et en Allemagne, mais une passion pour la musique de chambre, et pour toute forme de collaboration en général, incluant beaucoup de sonates romantiques… et quelques arrangements de musique traditionnelle bulgare.&nbsp;»'
                   {...mobileAttributes}
                 />
               </div>
@@ -123,7 +123,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='clavecin'
-                  text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»'
+                  text='«&nbsp;Une passion pour les XVIIè siècles français et italien, découverts grâce à l’improvisation. Un parcours entamé en Allemagne et poursuivi à Lyon, avec quelques détours par  des régions plus exotiques grâce à la basse continue entre autres…&nbsp;»'
                   {...mobileAttributes}
                   />
               </div>
@@ -138,7 +138,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='improvisation'
-                  text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»'
+                  text='«&nbsp;Une porte d’entrée vers la compréhension et la maîtrise du style… ou au contraire la victoire du musicien sur l’interprète ? De ciné-concerts en récitals, au Clavecin et au Piano, du XVIIème au XXIème siècle.&nbsp;»'
                   {...mobileAttributes}
                   />
               </div>
@@ -153,7 +153,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='recherche'
-                  text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»'
+                  text='«&nbsp;Quelques années d’université pour mettre un problème musical en équation, une perspective avant tout pédagogique, et un long détour par Athènes, Sparte et Mytilène.&nbsp;»'
                   {...mobileAttributes}
                   />
               </div>
@@ -168,7 +168,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='composition'
-                  text='«&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;»'
+                  text='«&nbsp;Vocale ou instrumentale, pour la scène ou à l’image…&nbsp;»'
                   {...mobileAttributes}
                   />
               </div>
