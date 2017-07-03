@@ -9,7 +9,7 @@ class Event extends React.Component {
       marginBottom: '20px'
     }
     const textStyles = {
-      fontSize: '18px',
+      fontSize: '16px',
       textAlign: 'left',
       fontFamily: 'Helvetica Neue, Helvetica, sans-serif',
       fontWeight: 'lighter',

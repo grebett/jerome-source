@@ -63,6 +63,7 @@ class Header extends React.Component {
       maxHeight: '462px',
       padding: '0px',
       width: '65%',
+      maxWidth: '630px',
     }
     imgStyles['@media (max-width: 1023px)'] = {
       width: '100%',

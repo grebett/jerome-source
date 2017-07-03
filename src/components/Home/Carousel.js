@@ -65,6 +65,7 @@ class Carousel extends React.Component {
       maxHeight: '431px',
       padding: '43px 0px',
       width: '60%',
+      maxWidth: '660px',
     }
     imgStyles['@media (max-width: 1023px)'] = {
       display: 'none',
