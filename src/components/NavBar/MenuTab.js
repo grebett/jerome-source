@@ -15,7 +15,7 @@ class MenuTab extends React.Component {
 
   render() {
     const containerStyles = {
-      width: '34px',
+      minWidth: '34px',
       padding: '3px 10px',
       boxSizing: 'content-box',
       background: 'transparent',

@@ -10,6 +10,7 @@ import Bio from './components/Bio'
 import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import Page from './components/Page'
+import EventsRecap from './components/EventsRecap'
 
 const App = () => (
   // for animation and scollToTop, see: https://reacttraining.com/react-router/web/guides/scroll-restoration
@@ -22,6 +23,7 @@ const App = () => (
       <Route path="/gallerie" component={Gallery}/>
       <Route path="/contact" component={Contact}/>
       <Route path="/page/:skill" component={Page}/>
+      <Route path="/evenements" component={EventsRecap}/>
     </div>
   </Router>
 )

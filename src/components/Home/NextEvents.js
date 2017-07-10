@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import { Link } from 'react-router-dom'
 import * as Contentful from '../../services/contentful'
 
 import Title from '../common/Title'
@@ -132,7 +133,9 @@ class NextEvents extends React.Component {
     return (
       <div style={containerStyles}>
         <div style={subcontainerStyles}>
-          <Title size="h2" custom-size={customSize} text="prochains evenements"/>
+          <Link to="/evenements" style={{textDecoration:'none'}}>
+            <Title size="h2" custom-size={customSize} text="prochains evenements"/>
+          </Link>
           <div style={eventsStyles}>
             {this.state.events.map((event, i) => <Event key={i} data={event}/>)}
           </div>
