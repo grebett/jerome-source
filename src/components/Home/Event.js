@@ -33,17 +33,19 @@ class Event extends React.Component {
     return (
       <div style={containerStyles}>
         <Icon name="agenda" active width="51px" display="inline-block"/>
-        <span style={textStyles}>
-          {this.props.data.venue}
-          <br />
-          {this.props.data.date.getDate()}
-          &nbsp;
-          {months[this.props.data.date.getMonth()]}
-          &nbsp;
-          {this.props.data.date.getFullYear()}
-          &nbsp;à&nbsp;
-          {this.props.data.hour}
-        </span>
+        <div style={textStyles}>
+          <div dangerouslySetInnerHTML={{__html: this.props.data.description}} />
+          <div dangerouslySetInnerHTML={{__html: this.props.data.venue}} />
+          <div>
+            {this.props.data.date.getDate()}
+            &nbsp;
+            {months[this.props.data.date.getMonth()]}
+            &nbsp;
+            {this.props.data.date.getFullYear()}
+            &nbsp;à&nbsp;
+            {this.props.data.hour}
+          </div>
+        </div>
       </div>
     )
   }
