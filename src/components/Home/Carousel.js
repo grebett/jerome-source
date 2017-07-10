@@ -109,7 +109,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='piano'
-                  text='«&nbsp;Une formation de soliste en France et en Allemagne, mais une passion pour la musique de chambre, et pour toute forme de collaboration en général, incluant beaucoup de sonates romantiques… et quelques arrangements de musique traditionnelle bulgare.&nbsp;»'
+                  text='Une formation de soliste en France et en Allemagne, mais une passion pour la musique de chambre, et pour toute forme de collaboration en général, incluant beaucoup de sonates romantiques… et quelques arrangements de musique traditionnelle bulgare.'
                   {...mobileAttributes}
                 />
               </div>
@@ -124,7 +124,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='clavecin'
-                  text='«&nbsp;Une passion pour les XVIIè siècles français et italien, découverts grâce à l’improvisation. Un parcours entamé en Allemagne et poursuivi à Lyon, avec quelques détours par  des régions plus exotiques grâce à la basse continue entre autres…&nbsp;»'
+                  text='Une passion pour les XVIIè siècles français et italien, découverts grâce à l’improvisation. Un parcours entamé en Allemagne et poursuivi à Lyon, avec quelques détours par  des régions plus exotiques grâce à la basse continue entre autres…'
                   {...mobileAttributes}
                   />
               </div>
@@ -139,7 +139,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='improvisation'
-                  text='«&nbsp;Une porte d’entrée vers la compréhension et la maîtrise du style… ou au contraire la victoire du musicien sur l’interprète ? De ciné-concerts en récitals, au Clavecin et au Piano, du XVIIème au XXIème siècle.&nbsp;»'
+                  text='Une porte d’entrée vers la compréhension et la maîtrise du style… ou au contraire la victoire du musicien sur l’interprète ? De ciné-concerts en récitals, au Clavecin et au Piano, du XVIIème au XXIème siècle.'
                   {...mobileAttributes}
                   />
               </div>
@@ -154,7 +154,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='recherche'
-                  text='«&nbsp;Quelques années d’université pour mettre un problème musical en équation, une perspective avant tout pédagogique, et un long détour par Athènes, Sparte et Mytilène.&nbsp;»'
+                  text='Quelques années d’université pour mettre un problème musical en équation, une perspective avant tout pédagogique, et un long détour par Athènes, Sparte et Mytilène.'
                   {...mobileAttributes}
                   />
               </div>
@@ -169,7 +169,7 @@ class Carousel extends React.Component {
               <div style={cardStyles}>
                 <Card
                   title='composition'
-                  text='«&nbsp;Vocale ou instrumentale, pour la scène ou à l’image…&nbsp;»'
+                  text='Vocale ou instrumentale, pour la scène ou à l’image…'
                   {...mobileAttributes}
                   />
               </div>
