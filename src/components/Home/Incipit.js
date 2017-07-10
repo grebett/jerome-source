@@ -71,7 +71,7 @@ class Incipit extends React.Component {
           Pianiste, Claveciniste, Interprète et Improvisateur… un parcours musical au-delà des frontières, une curiosité sans cesse renouvelée pour les musique d’hier, d’aujourd’hui, d’ici et d’ailleurs.
           &nbsp;<Link style={linkStyles} to='bio'>Découvrir ma biographie</Link>
         </p>
-        <img style={imgStyles} src="/assets/piano.jpg" />
+        <img style={imgStyles} src="/assets/piano.jpg" alt="" />
       </div>
     )
   }
