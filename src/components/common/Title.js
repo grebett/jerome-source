@@ -18,7 +18,7 @@ class Title extends React.Component {
       'mobile': sizes[this.props.size] * 0.5 + 'px'
     }
     const titleStyles = {
-      fontFamily: 'Kano',
+      fontFamily: this.props['font-family'] || 'Kano',
       color: '#202020',
       fontWeight: 'normal',
       margin: '0px',

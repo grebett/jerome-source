@@ -3,8 +3,6 @@ import Radium from 'radium'
 import Slider from 'react-slick'
 import debounce from 'lodash.debounce'
 
-console.log(debounce)
-
 import Card from '../common/Card'
 import Plus from '../common/Plus'
 

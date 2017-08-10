@@ -10,7 +10,7 @@ const Contact = () => (
   <div style={{marginTop:'54px', width:'100%', color: 'steeblue'}}>
     <Incipit />
     <Infos />
-    <Quote text="« citation »"/>
+    <Quote text=""/>
     <Footer />
   </div>
 )

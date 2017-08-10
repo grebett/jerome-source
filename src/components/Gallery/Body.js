@@ -14,7 +14,6 @@ class Body extends React.Component {
     }
     Contentful.getEntries('media').then(value => {
       this.setState({media: value.items})
-      console.log(value.items)
     }, error => {
       console.error(error)
     })

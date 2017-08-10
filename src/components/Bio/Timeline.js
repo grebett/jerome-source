@@ -68,7 +68,7 @@ class Timeline extends React.Component {
         <Planet size='l' x={0} y={0} text='Parcours' text-centered='true' force-active />
         { experiences.map((experience, i) => {
           let y = step * (i + 1) + 75
-          let left = '-380px'
+          let left = '-340px'
           let right = '85px'
           if (isMobile) {
             left = '85px'

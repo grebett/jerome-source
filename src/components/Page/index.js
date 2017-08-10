@@ -22,7 +22,6 @@ class Page extends React.Component {
 
     Contentful.getEntry(this.state.skill).then(value => {
       this.setState({fields: value.fields})
-      console.log(value.fields)
     }, error => {
       console.error(error)
     })

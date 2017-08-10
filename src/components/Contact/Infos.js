@@ -99,7 +99,7 @@ class Infos extends React.Component {
               <Icon name="email" active width="51px" display="inline-block"/>
               <span style={contactDetailTextStyles}>
                 MAIL<br/>
-                <a style={linkStyles} href="mailto:contact@jeromebertier.com" target="_blank">jerome.bertier@gmail.com</a>
+              <a style={linkStyles} href="mailto:contact@jeromebertier.com" target="_blank">contact@jeromebertier.com</a>
               </span>
             </div>
             {/* <div style={contactDetailStyles}>

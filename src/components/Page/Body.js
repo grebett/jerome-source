@@ -11,22 +11,26 @@ class Body extends React.Component {
     super(props)
     this.state = {
       displayModal: false,
-      medium1: null,
-      medium2: null,
     }
   }
 
+
   componentWillUpdate(nextProps) {
-    if (!this.state.medium1) {
-      Contentful.getEntry(nextProps.fields.medium1.sys.id).then(value1 => {
-        Contentful.getEntry(nextProps.fields.medium2.sys.id).then(value2 => {
-          this.setState({medium1: value1.fields, medium2: value2.fields})
+    const media = ['medium1', 'medium2', 'medium3', 'medium4', 'medium5']
+
+    for (let i = 0; i < media.length; i++) {
+      if (nextProps.fields[media[i]] !== undefined && this.state[media[i]] === undefined) {
+        Contentful.getEntry(nextProps.fields[media[i]].sys.id).then(value => {
+          let state = {}
+          state[media[i]] = value
+          this.setState(state)
         }, error => {
           console.error(error)
+          let state = {}
+          state[media[i]] = null
+          this.setState(state)
         })
-      }, error => {
-        console.error(error)
-      })
+      }
     }
   }
 
@@ -53,81 +57,68 @@ class Body extends React.Component {
       galleryItemWidth = '100%'
       cardPadding = '15px'
     }
-    let medium1 = null
-    let medium2 = null
 
-    if (this.state.medium1) {
-      let type = this.state.medium1.type[0]
-      if (type === 'image') {
-        medium1 = <img className="inline-top" src={this.state.medium1.URL} width="50%" alt="" />
-      } else {
-        medium1 = <GalleryItem
-          src={this.state.medium1.vignette}
-          title={this.state.medium1.title}
-          type={this.state.medium1.type[0]}
-          width={galleryItemWidth}
-          target={this.state.medium1.URL}
-          onClick={this.showModal.bind(this)}
-          grad1={this.props.grad1}
-          grad2={this.props.grad2}
-        />
+    let Rows = []
+    let Medium = null
+    for (let i = 0; i < 5; i++) {
+      let paragraph = this.props.fields[`paragraphe${i}`]
+      if (paragraph) {
+        if (this.state[`medium${i}`]) {
+          let medium = this.state[`medium${i}`].fields
+          let type = medium.type[0]
+          if (type === 'image') {
+            Medium = <img src={medium.URL} width="100%" alt="" />
+          } else {
+            Medium = <GalleryItem
+              src={medium.vignette}
+              title={medium.title}
+              type={medium.type[0]}
+              width={galleryItemWidth}
+              target={medium.URL}
+              onClick={this.showModal.bind(this)}
+              grad1={this.props.grad1}
+              grad2={this.props.grad2}
+            />
+          }
+        }
+
+        let elem1 = (
+          <div className="inline-middle">
+            <Card
+              title={this.props.fields[`titre${i}`] || ''}
+              text={this.props.fields[`paragraphe${i}`]}
+              width="100%"
+              padding={cardPadding}
+              no-ui />
+          </div>
+        )
+        let elem2 = (
+          <div className="inline-middle">
+            {Medium}
+          </div>
+        )
+
+        Rows.push((<div key={i}>
+          {i % 2 === 0 ? elem1 : elem2}
+          {i % 2 === 0 ? elem2 : elem1}
+        </div>))
       }
     }
 
-    if (this.state.medium2) {
-      let type = this.state.medium2.type[0]
-      if (type === 'image') {
-        medium2 = <img src={this.state.medium2.URL} width="100%" alt="" />
-      } else {
-        medium2 = <GalleryItem
-          src={this.state.medium2.vignette}
-          title={this.state.medium2.title}
-          type={this.state.medium2.type[0]}
-          width={galleryItemWidth}
-          target={this.state.medium2.URL}
-          onClick={this.showModal.bind(this)}
-          grad1={this.props.grad1}
-          grad2={this.props.grad2}
-        />
-      }
-    }
 
     return (
       <div style={containerStyles}>
         <Style
-          scopeSelector=".inline-top"
+          scopeSelector=".inline-middle"
           rules={{
             display: 'inline-block',
-            verticalAlign: 'top',
+            verticalAlign: 'middle',
             width: isMobile ? '100%' : '44%',
             margin: isMobile ? '0 0 30px 0' : '0 2% 5% 2%',
           }}/>
-        <div>
-          <div className="inline-top">
-            <Card
-              title={this.props.fields.titre1 || ''}
-              text={this.props.fields.paragraphe1}
-              width="100%"
-              padding={cardPadding}
-              no-ui />
-          </div>
-          <div className="inline-top">
-            {medium1}
-          </div>
-        </div>
-        <div>
-          <div className="inline-top">
-            {medium2}
-          </div>
-          <div className="inline-top">
-            <Card
-              title={this.props.fields.titre2 || ''}
-              text={this.props.fields.paragraphe2}
-              padding={cardPadding}
-              width="100%"
-              no-ui />
-          </div>
-        </div>
+
+        {Rows}
+
         <Modal
           display={this.state.displayModal}
           onClose={this.closeModal.bind(this)}

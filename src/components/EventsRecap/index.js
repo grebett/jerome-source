@@ -13,14 +13,21 @@ class EventsRecap extends React.Component {
     Contentful.getEntries('performances').then(value => {
       let performances = value.items.map(item => {
         let value = item.fields
-        value.date = new Date(value.date)
+        value.date = new Date(value.date).getTime()
 
         return value
       })
 
       // sort
-      performances.sort((a, b) => a.date < b.date)
-      console.log(performances)
+      performances = performances.sort((perf1, perf2) => {
+        if (perf1.date < perf2.date) {
+          return 1
+        } else if (perf1.date > perf2.date) {
+          return -1
+        } else {
+          return 0
+        }
+      })
       this.setState({events: performances})
     }, error => {
       console.error(error)
@@ -37,12 +44,12 @@ class EventsRecap extends React.Component {
       padding: '20px 15px',
     }
 
-        const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
+    const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
     const Performances = this.state.events.map((e, i) => (<li key={i} style={performanceStyles}>
       <div>
-        <Title size="h2" text={`${e.date.getDate()} ${months[e.date.getMonth()]} ${e.date.getFullYear()}`}/><br/>
-        <Title size="h4" text={e.venue}/>
-        <p dangerouslySetInnerHTML={{__html: e.description}} />
+        <Title size="h3" text={`${new Date(e.date).getDate()} ${months[new Date(e.date).getMonth()]} ${new Date(e.date).getFullYear()}`}/><br/>
+        <Title size="h4" text={e.venue} font-family="Avenir Next"/>
+        <p style={{fontSize: '0.9em', fontFamily:'Avenir Next'}} dangerouslySetInnerHTML={{__html: e.description}} />
     </div>
     </li>))
 
