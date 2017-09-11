@@ -27,7 +27,7 @@ class Home extends React.Component {
   }
 
   handleMouseOver(e) {
-    this.setState({activeSlide: parseInt(e.target.getAttribute('data-id'))})
+    this.setState({activeSlide: parseInt(e.target.getAttribute('data-id'), 10)})
   }
 }
 

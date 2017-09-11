@@ -41,31 +41,29 @@ class Incipit extends React.Component {
       fontSize: '18px',
       lineHeight: '21px',
       margin: '0px',
-      padding: '32px 34px 0 0'
+      padding: '32px 34px 0 0',
+      color: 'rgb(245, 235, 235)',
     }
     pStyles['@media (max-width: 1439px)'] = {
       fontSize: '16px',
       lineHeight: '21px',
       padding: '22px 54px 0 0'
     }
-    const linkStyles = {
-      color: '#f6d365',
-      fontWeight: 'bold',
-      textDecoration: 'none'
-    }
+    // const linkStyles = {
+    //   color: '#f6d365',
+    //   fontWeight: 'bold',
+    //   textDecoration: 'none'
+    // }
 
     return (
       <div style={containerStyles}>
-        <Title size='h1' text='jerome bertier' />
-        <p style={pStyles}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <Title size='h1' text='jerome bertier' color="rgb(245, 235, 235)"/>
         {/* <p>
           <a href="#" style={linkStyles}>Découvrir mes vidéos sur YouTube</a>
         </p>
         <p>
           <a href="#" style={linkStyles}>Découvrir mes morceaux sur SoundCloud</a>
-        </p>*/} 
+        </p>*/}
       </div>
     )
   }

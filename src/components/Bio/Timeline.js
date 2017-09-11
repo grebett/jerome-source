@@ -15,11 +15,20 @@ class Timeline extends React.Component {
     Contentful.getEntries('pieces').then(value => {
       let experiences = value.items.map(item => {
         let value = item.fields
+        value.fullDate = value.date
         value.date = new Date(value.date).getFullYear()
 
         return value
       })
-      experiences.sort((a, b) => a.date < b.date)
+      experiences = experiences.sort((exp1, exp2) => {
+        if (exp1.fullDate < exp2.fullDate) {
+          return 1
+        } else if (exp1.date > exp2.date) {
+          return -1
+        } else {
+          return 0
+        }
+      })
       this.setState({experiences})
     }, error => {
       console.error(error)

@@ -14,7 +14,7 @@ class Infos extends React.Component {
       width: '582px',
       backgroundColor: 'transparent',
       borderRadius: '50%',
-      border: '1px solid #f6a623',
+      border: '1px solid rgb(245, 235, 235)',
       overflow: 'hidden'
     }
     containerStyles['@media (max-width: 1439px)'] = {
@@ -71,7 +71,8 @@ class Infos extends React.Component {
     }
 
     const contactDetailStyles = {
-      marginBottom: '20px'
+      marginBottom: '20px',
+      color: 'rgb(245, 235, 235)',
     }
     const contactDetailTextStyles = {
       fontSize: '20px',
@@ -80,23 +81,25 @@ class Infos extends React.Component {
       fontWeight: 'lighter',
       display: 'inline-block',
       verticalAlign: 'middle',
-      marginLeft: '15px'
+      marginLeft: '15px',
     }
     contactDetailTextStyles['@media (max-width: 1439px)'] = {
       fontSize: '16px'
     }
     const linkStyles = {
-      color: '#202020',
-      textDecoration: 'none'
+      textDecoration: 'none',
+      color: 'rgb(245, 235, 235)',
     }
 
     return (
       <div style={containerStyles}>
         <div style={subcontainerStyles}>
-          <Title size="h2" text="contact"/>
+          <Title size="h2" text="contact" color="rgb(245, 235, 235)"/>
           <div style={eventsStyles}>
             <div style={contactDetailStyles}>
-              <Icon name="email" active width="51px" display="inline-block"/>
+              <span style={{filter: 'grayscale(100) brightness(120)'}}>
+                <Icon name="email" active width="51px" display="inline-block"/>
+              </span>
               <span style={contactDetailTextStyles}>
                 MAIL<br/>
               <a style={linkStyles} href="mailto:contact@jeromebertier.com" target="_blank">contact@jeromebertier.com</a>

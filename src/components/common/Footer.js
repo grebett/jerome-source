@@ -4,7 +4,7 @@ import Radium from 'radium'
 class Footer extends React.Component {
   render() {
     const containerStyles = {
-      position: 'relative',
+      position: this.props.position || 'relative',
       left: '0px',
       bottom: '0px',
       height: '30px',
