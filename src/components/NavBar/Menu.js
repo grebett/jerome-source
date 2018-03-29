@@ -16,7 +16,7 @@ class Menu extends React.Component {
       <div style={containerStyles}>
         <MenuTab name="home" title="Accueil" to="/" hoverable />
         <MenuTab name="bio" title="Bio" to="/bio" hoverable />
-        <MenuTab name="gallery" title="Gallerie" to="/gallerie" hoverable />
+        <MenuTab name="gallery" title="Galerie" to="/galerie" hoverable />
         <MenuTab name="agenda" title="Agenda" to="/evenements" hoverable />
         <MenuTab name="email" title="Contact" to="/contact" hoverable />
       </div>

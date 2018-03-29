@@ -26,7 +26,7 @@ class MenuTab extends React.Component {
       marginTop: '3px',
       width: '100%',
       fontFamily: 'Kano',
-      fontSize: '10px',
+      fontSize: '13px',
       color: this.state.active ? '#f6d365' : '#ffffff'
     }
 

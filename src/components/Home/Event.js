@@ -32,19 +32,19 @@ class Event extends React.Component {
     const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
     return (
       <div style={containerStyles}>
-        <Icon name="agenda" active width="51px" display="inline-block"/>
+        <Icon name="agenda" active width="51px" display="inline-block" />
         <div style={textStyles}>
-          <div dangerouslySetInnerHTML={{__html: this.props.data.description}} />
-          <div dangerouslySetInnerHTML={{__html: this.props.data.venue}} />
           <div>
-            {this.props.data.date.getDate()}
-            &nbsp;
-            {months[this.props.data.date.getMonth()]}
-            &nbsp;
-            {this.props.data.date.getFullYear()}
-            &nbsp;à&nbsp;
-            {this.props.data.hour}
-          </div>
+              {this.props.data.date.getDate()}
+              &nbsp;
+              {months[this.props.data.date.getMonth()]}
+              &nbsp;
+              {this.props.data.date.getFullYear()}
+              &nbsp;à&nbsp;
+              {this.props.data.hour}
+            </div>
+          <div dangerouslySetInnerHTML={{__html: this.props.data.venue}} />
+          <div dangerouslySetInnerHTML={{__html: this.props.data.description2}} />
         </div>
       </div>
     )
