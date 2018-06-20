@@ -137,7 +137,9 @@ class NextEvents extends React.Component {
             <Title size="h2" custom-size={customSize} text="prochains evenements"/>
           </Link>
           <div style={eventsStyles}>
-            {this.state.events.map((event, i) => <Event key={i} data={event}/>)}
+            {this.state.events.map((event, i) => <Link to="/evenements" style={{textDecoration:'none', color: 'black'}}>
+                <Event key={i} data={event}/>
+              </Link>)}
           </div>
         </div>
       </div>

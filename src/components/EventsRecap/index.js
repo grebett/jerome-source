@@ -7,7 +7,8 @@ class EventsRecap extends React.Component {
   constructor() {
     super()
     this.state = {
-      events: [],
+      eventsDisplayed: [],
+      allEvents: [],
     }
 
     Contentful.getEntries('performances').then(value => {
@@ -28,33 +29,75 @@ class EventsRecap extends React.Component {
           return 0
         }
       })
-      this.setState({events: performances})
+      this.setState({
+        allEvents: performances,
+        eventsDisplayed: performances.filter(p => new Date(p.date).getMonth() === new Date().getMonth()
+        && new Date(p.date).getFullYear() === new Date().getFullYear()),
+      })
     }, error => {
       console.error(error)
     })
+    this.filter = this.filter.bind(this)
+  }
+
+  filter(predicate) {
+    this.setState({eventsDisplayed: this.state.allEvents.filter(p => predicate(p))})
   }
 
   render() {
     const performancesStyles = {
       padding: '50px 0',
     }
+    console.log(window.innerWidth)
     const performanceStyles = {
       listStyle: 'none',
-      borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.75)',
+      margin: '20px',
       padding: '20px 15px',
+      width: window.innerWidth <= 414 ? '83vw' : '400px',
+      maxHeight: '200px',
+      display: 'inline-block',
+      verticalAlign: 'top',
+    }
+    const controlsStyles = {
+      marginTop: '100px',
+      marginLeft: '20px',
     }
 
-    const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
-    const Performances = this.state.events.map((e, i) => (<li key={i} style={performanceStyles}>
+    const buttonStyles = {
+      display : window.innerWidth <= 414 ? 'block' : '',
+      border: 'none',
+      fontFamily: 'Arial',
+      verticalAlign: 'middle',
+      cursor: 'pointer',
+      background: 'rgba(246, 211, 101, 0.6)',
+      color: 'black',
+      margin:  window.innerWidth <= 414 ? '10px auto' : '10px',
+      position: 'relative',
+      height: '50px',
+      width: window.innerWidth <= 414 ? '200px' : '120px',
+      fontSize: '12px',
+      paddingTop: '3px',
+      outline: 'none',
+    }
+
+    const months = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre']
+    const Performances = this.state.eventsDisplayed.map((e, i) => (<li key={i} style={performanceStyles}>
       <div>
-        <Title size="h3" text={`${new Date(e.date).getDate()} ${months[new Date(e.date).getMonth()]} ${new Date(e.date).getFullYear()}`}/><br/>
-        <Title size="h4" text={e.venue} font-family="Avenir Next"/>
-        <p style={{fontSize: '0.9em', fontFamily:'Avenir Next'}} dangerouslySetInnerHTML={{__html: e.description}} />
+        <Title size="h4" text={`${new Date(e.date).getDate()} ${months[new Date(e.date).getMonth()]} ${new Date(e.date).getFullYear()}`} font-family="Helvetica Neue"/><br/>
+        <Title size="h5" text={e.venue} font-family="Helvetica Neue"/>
+        <p style={{fontSize: '0.9em', fontFamily:'Helvetica Neue'}} dangerouslySetInnerHTML={{__html: e.description}} />
     </div>
     </li>))
 
     return (
       <div style={{marginTop:'54px', width:'100%'}}>
+        <div style={controlsStyles}>Afficher :
+          <button style={buttonStyles} onClick={() => this.filter(p => p.date < new Date().getTime())}>Tous les évènements passés</button>
+          <button style={buttonStyles} onClick={() => this.filter(p => p.date > new Date().getTime())}>Tous les évènements à venir</button>
+          <button style={buttonStyles} onClick={() => this.filter(p => new Date(p.date).getMonth() === new Date().getMonth() && new Date(p.date).getFullYear() === new Date().getFullYear())}>Ce mois-ci</button>
+          <button style={buttonStyles} onClick={() => this.filter(p => true)}>Tous les évènements</button>
+        </div>
         <ul style={performancesStyles}>
           {Performances}
         </ul>

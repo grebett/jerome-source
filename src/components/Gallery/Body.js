@@ -10,28 +10,23 @@ class Body extends React.Component {
     super()
     this.state = {
       displayModal: false,
-      media: [],
+      mediaDisplayed: [],
+      allMedia: [],
     }
+    this.filter = this.filter.bind(this);
     Contentful.getEntries('media').then(value => {
-      this.setState({media: value.items})
+      this.setState({mediaDisplayed: value.items, allMedia: value.items})
     }, error => {
       console.error(error)
     })
   }
 
+  filter(type) {
+    this.setState({mediaDisplayed: this.state.allMedia.filter(el => type === '*' || el.fields.type[0] === type)})
+  }
+
   render() {
-    let data = this.state.media.map((element) => element.fields)
-    // data = [
-    //   { src: '/assets/Piano.jpg', target: '/assets/Piano.jpg', title: 'piano', type: 'image' },
-    //   { src: '/assets/Clavecin.jpg', target: '/assets/Clavecin.jpg', title: 'piano', type: 'image' },
-    //   { src: '/assets/Clavecin 1.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
-    //   { src: '/assets/Composition.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
-    //   { src: '/assets/Galerie1.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
-    //   { src: '/assets/Galerie2.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
-    //   { src: '/assets/Composition.jpg', target: '/assets/Composition.jpg', title: 'piano', type: 'image' },
-    //   { src: '/assets/Improvisation.jpg', target: '/assets/Improvisation.jpg', title: 'piano', type: 'image' },
-    //   { src: '/assets/Portrait 2.jpg', target: '/assets/Portrait 2.jpg', title: 'piano', type: 'image' },
-    // ]
+    let data = this.state.mediaDisplayed.map((element) => element.fields)
 
     const containerStyles = {
       position: 'relative',
@@ -62,10 +57,34 @@ class Body extends React.Component {
       marginLeft: '0px',
     }
 
+    const controlsStyles = {
+      marginLeft: '20px',
+    }
+
+    const buttonStyles = {
+      border: 'none',
+      cursor: 'pointer',
+      background: 'rgba(246, 211, 101, 0.6)',
+      color: 'black',
+      marginLeft: '10px',
+      height: '20px',
+      width: '50px',
+      fontSize: '14px',
+      paddingTop: '3px',
+      fontFamily: 'Kano',
+      outline: 'none',
+    }
+
     let isMobile = window.outerWidth < 1024
 
     return (
       <div style={containerStyles}>
+      <div style={controlsStyles}>Afficher :
+        <button style={buttonStyles} onClick={() => this.filter('image')}>Photos</button>
+        <button style={buttonStyles} onClick={() => this.filter('audio')}>Audio</button>
+        <button style={buttonStyles} onClick={() => this.filter('vidéo')}>Vidéo</button>
+        <button style={buttonStyles} onClick={() => this.filter('*')}>Tous</button>
+      </div>
         {data.map((item, i) => <GalleryItem
           key={i}
           src={item.vignette}
@@ -107,3 +126,15 @@ class Body extends React.Component {
 }
 
 export default Radium(Body)
+
+// data = [
+    //   { src: '/assets/Piano.jpg', target: '/assets/Piano.jpg', title: 'piano', type: 'image' },
+    //   { src: '/assets/Clavecin.jpg', target: '/assets/Clavecin.jpg', title: 'piano', type: 'image' },
+    //   { src: '/assets/Clavecin 1.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
+    //   { src: '/assets/Composition.jpg', target: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256415491', title: 'piano', type: 'audio' },
+    //   { src: '/assets/Galerie1.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
+    //   { src: '/assets/Galerie2.jpg', target: 'https://www.youtube.com/embed/LWQVztiJHfs', title: 'piano', type: 'video' },
+    //   { src: '/assets/Composition.jpg', target: '/assets/Composition.jpg', title: 'piano', type: 'image' },
+    //   { src: '/assets/Improvisation.jpg', target: '/assets/Improvisation.jpg', title: 'piano', type: 'image' },
+    //   { src: '/assets/Portrait 2.jpg', target: '/assets/Portrait 2.jpg', title: 'piano', type: 'image' },
+    // ]
