@@ -21,7 +21,7 @@ class Footer extends React.Component {
 
     return (
       <div style={containerStyles}>
-        <p>Copyright 2017 – créé par grebett</p>
+        <p>Copyright 2017 - 2018 – créé par grebett</p>
       </div>
     )
   }
