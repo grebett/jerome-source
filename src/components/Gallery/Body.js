@@ -85,7 +85,7 @@ class Body extends React.Component {
         <button style={buttonStyles} onClick={() => this.filter('vidéo')}>Vidéo</button>
         <button style={buttonStyles} onClick={() => this.filter('*')}>Tous</button>
       </div>
-        {data.map((item, i) => <GalleryItem
+        {data.filter(item => item.vignette !== undefined).map((item, i) => <GalleryItem
           key={i}
           src={item.vignette}
           title={item.title}
