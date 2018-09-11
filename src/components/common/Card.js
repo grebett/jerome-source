@@ -29,7 +29,7 @@ class Card extends React.Component {
 
     // could check if this.props.size is a valid hx element
     return (
-      <div style={containerStyles}>
+      <div style={{...containerStyles, ...this.props.style}}>
         <Title size="h2" text={this.props.title} />
         <p style={pStyles} dangerouslySetInnerHTML={{__html: this.props.text}}></p>
       </div>
