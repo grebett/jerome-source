@@ -7,7 +7,9 @@ class EventsRecap extends React.Component {
   constructor() {
     super()
     this.state = {
-      eventsDisplayed: [],
+      thisMonthPerformances: [],
+      nextPerformances: [],
+      pastPerformances: [],
       allEvents: [],
     }
 
@@ -22,39 +24,34 @@ class EventsRecap extends React.Component {
       // sort
       performances = performances.sort((perf1, perf2) => {
         if (perf1.date < perf2.date) {
-          return 1
-        } else if (perf1.date > perf2.date) {
           return -1
+        } else if (perf1.date > perf2.date) {
+          return 1
         } else {
           return 0
         }
       })
       this.setState({
         allEvents: performances,
-        eventsDisplayed: performances.filter(p => new Date(p.date).getMonth() === new Date().getMonth()
-        && new Date(p.date).getFullYear() === new Date().getFullYear()),
+        thisMonthPerformances: performances.filter(p => new Date(p.date).getMonth() === new Date().getMonth() && new Date(p.date).getFullYear() === new Date().getFullYear()),
+        nextPerformances: performances.filter(p => new Date() < p.date),
+        pastPerformances: performances.filter(p => new Date() > p.date),
       })
     }, error => {
       console.error(error)
     })
-    this.filter = this.filter.bind(this)
-  }
-
-  filter(predicate) {
-    this.setState({eventsDisplayed: this.state.allEvents.filter(p => predicate(p))})
   }
 
   render() {
     const performancesStyles = {
       padding: '50px 0',
     }
-    console.log(window.innerWidth)
     const performanceStyles = {
       listStyle: 'none',
-      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.75)',
-      margin: '20px',
+      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
+      marginBottom: '30px',
       padding: '20px 15px',
-      width: window.innerWidth <= 414 ? '83vw' : '400px',
+      width: window.innerWidth <= 600 ? '83vw' : '50%',
       maxHeight: '200px',
       display: 'inline-block',
       verticalAlign: 'top',
@@ -64,42 +61,33 @@ class EventsRecap extends React.Component {
       marginLeft: '20px',
     }
 
-    const buttonStyles = {
-      display : window.innerWidth <= 414 ? 'block' : '',
-      border: 'none',
-      fontFamily: 'Arial',
-      verticalAlign: 'middle',
-      cursor: 'pointer',
-      background: 'rgba(246, 211, 101, 0.6)',
-      color: 'black',
-      margin:  window.innerWidth <= 414 ? '10px auto' : '10px',
-      position: 'relative',
-      height: '50px',
-      width: window.innerWidth <= 414 ? '200px' : '120px',
-      fontSize: '12px',
-      paddingTop: '3px',
-      outline: 'none',
-    }
 
     const months = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre']
-    const Performances = this.state.eventsDisplayed.map((e, i) => (<li key={i} style={performanceStyles}>
+    const buildPerformancesElement = perf => perf.map((e, i) => (<li key={i} style={performanceStyles}>
       <div>
-        <Title size="h4" text={`${new Date(e.date).getDate()} ${months[new Date(e.date).getMonth()]} ${new Date(e.date).getFullYear()}`} font-family="Helvetica Neue"/><br/>
+        <Title size="h5" text={`${new Date(e.date).getDate()} ${months[new Date(e.date).getMonth()]} ${new Date(e.date).getFullYear()}`} font-family="Helvetica Neue"/><br/>
         <Title size="h5" text={e.venue} font-family="Helvetica Neue"/>
         <p style={{fontSize: '0.9em', fontFamily:'Helvetica Neue'}} dangerouslySetInnerHTML={{__html: e.description}} />
     </div>
-    </li>))
+    </li>));
+
+    const thisMonthPerformances = buildPerformancesElement(this.state.thisMonthPerformances);
+    const nextPerformances = buildPerformancesElement(this.state.nextPerformances);
+    const pastPerformances = buildPerformancesElement(this.state.pastPerformances);
 
     return (
-      <div style={{marginTop:'54px', width:'100%'}}>
-        <div style={controlsStyles}>Afficher :
-          <button style={buttonStyles} onClick={() => this.filter(p => p.date < new Date().getTime())}>Tous les évènements passés</button>
-          <button style={buttonStyles} onClick={() => this.filter(p => p.date > new Date().getTime())}>Tous les évènements à venir</button>
-          <button style={buttonStyles} onClick={() => this.filter(p => new Date(p.date).getMonth() === new Date().getMonth() && new Date(p.date).getFullYear() === new Date().getFullYear())}>Ce mois-ci</button>
-          <button style={buttonStyles} onClick={() => this.filter(p => true)}>Tous les évènements</button>
-        </div>
+      <div style={{marginTop:'54px', width:'100%', padding: '30px 0 0 30px'}}>
+        <Title size="h2" text="Ce mois-ci" font-family="Helvetica Neue"/>
         <ul style={performancesStyles}>
-          {Performances}
+          {thisMonthPerformances}
+        </ul>
+        <Title size="h2" text="Tous les évènements à venir" font-family="Helvetica Neue"/>
+        <ul style={performancesStyles}>
+          {nextPerformances}
+        </ul>
+        <Title size="h2" text="Les évènements passés" font-family="Helvetica Neue"/>
+        <ul style={performancesStyles}>
+          {pastPerformances}
         </ul>
         <Footer />
       </div>

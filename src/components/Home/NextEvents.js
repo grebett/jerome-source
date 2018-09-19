@@ -22,7 +22,7 @@ class NextEvents extends React.Component {
       })
 
       // sort
-      performances.sort((a, b) => a.date > b.date)
+      performances.sort((a, b) => a.date > b.date ? 1 : -1);
 
       // keep the last one (if less than a month) + the 2 next
       let now = new Date()
@@ -129,7 +129,7 @@ class NextEvents extends React.Component {
     if (window.outerWidth <= 1024) {
       customSize = '1.5em'
     }
-
+    console.log(this.state.events);
     return (
       <div style={containerStyles}>
         <div style={subcontainerStyles}>
@@ -137,7 +137,7 @@ class NextEvents extends React.Component {
             <Title size="h2" custom-size={customSize} text="prochains evenements"/>
           </Link>
           <div style={eventsStyles}>
-            {this.state.events.map((event, i) => <Link to="/evenements" style={{textDecoration:'none', color: 'black'}}>
+            {this.state.events.map((event, i) => <Link to="/evenements" key={i} style={{textDecoration:'none', color: 'black'}}>
                 <Event key={i} data={event}/>
               </Link>)}
           </div>
